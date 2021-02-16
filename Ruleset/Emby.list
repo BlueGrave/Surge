@@ -1,0 +1,16 @@
+# 自己整理的
+# > Emby
+DOMAIN,emby.ytoo.li
+DOMAIN,emby.nexitally.com
+DOMAIN,emby.w8ves.co
+DOMAIN,emby.xeton.dev
+DOMAIN,emby.prprcloud.com
+DOMAIN,emby.maying.club
+DOMAIN,emby.mdss.cloud
+DOMAIN,jellyfin.xeton.dev
+DOMAIN,movie.xeton.dev
+DOMAIN,servers.xeton.dev
+DOMIAN-SUFFIX,emby.wtf
+DOMAIN-SUFFIX,plusmedia.site
+DOMAIN-SUFFIX,mickeycloud.com
+IP-CIDR,45.137.217.217/32,no-resolve
