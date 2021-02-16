@@ -1,0 +1,11 @@
+# 自己整理的
+# 全球直连
+# 排除 AdBlock 的误伤
+DOMAIN-SUFFIX,tce.alicdn.com
+DOMAIN-SUFFIX,accounts.logi.com
+DOMAIN-SUFFIX,ghub.logitech.io
+DOMAIN,emby.plusmedia.site
+DOMAIN,bgp.emby.mickeycloud.com
+DOMAIN,gm.mmstat.com
+DOMAIN,passportapi.115.com
+DOMAIN,tui.weibo.com
