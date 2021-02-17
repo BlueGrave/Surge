@@ -1,16 +1,23 @@
 # 自己整理的
 # > Emby
+# 各机场服
 DOMAIN,emby.ytoo.li
 DOMAIN,emby.nexitally.com
 DOMAIN,emby.w8ves.co
-DOMAIN,emby.xeton.dev
+DOMAIN,emby.flowercloud.yt
 DOMAIN,emby.prprcloud.com
 DOMAIN,emby.maying.club
 DOMAIN,emby.mdss.cloud
+
+# 备用服 1-4
+DOMAIN,emby.xeton.dev
 DOMAIN,jellyfin.xeton.dev
 DOMAIN,movie.xeton.dev
 DOMAIN,servers.xeton.dev
+
+# CF 公益服
+DOMAIN,emby-cf.plusmedia.site
+
 DOMIAN-SUFFIX,emby.wtf
 DOMAIN-SUFFIX,plusmedia.site
 DOMAIN-SUFFIX,mickeycloud.com
-IP-CIDR,45.137.217.217/32,no-resolve
