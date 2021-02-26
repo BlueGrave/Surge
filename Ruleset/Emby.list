@@ -1,13 +1,23 @@
 # 自己整理的
 # > Emby
 # 各机场服
+# YToo
 DOMAIN,emby.ytoo.li
+# Nexitally
 DOMAIN,emby.nexitally.com
+# w8ves
 DOMAIN,emby.w8ves.co
+# FlowerCloud
 DOMAIN,emby.flowercloud.yt
+# prprCloud
 DOMAIN,emby.prprcloud.com
+# Maying
 DOMAIN,emby.maying.club
+# MDSS
 DOMAIN,emby.mdss.cloud
+# 跑车云
+DOMAIN,emby.cjpc.xyz
+DOMAIN,emby.paoche.ooo
 
 # 备用服 1-4
 DOMAIN,emby.xeton.dev
