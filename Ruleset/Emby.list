@@ -15,19 +15,17 @@ DOMAIN,emby.prprcloud.com
 DOMAIN,emby.maying.club
 # MDSS
 DOMAIN,emby.mdss.cloud
-# 跑车云
+# paoche 跑车云
 DOMAIN,emby.cjpc.xyz
 DOMAIN,emby.paoche.ooo
 
-# 备用服 1-4
+# CF 公益服
+DOMAIN,emby-cf.plusmedia.site
+# AGA 公益服
+# DOMAIN,emby.plusmedia.site
+
+# 备用公益服 1-4
 DOMAIN,emby.xeton.dev
 DOMAIN,jellyfin.xeton.dev
 DOMAIN,movie.xeton.dev
 DOMAIN,servers.xeton.dev
-
-# CF 公益服
-DOMAIN,emby-cf.plusmedia.site
-
-DOMIAN-SUFFIX,emby.wtf
-DOMAIN-SUFFIX,plusmedia.site
-DOMAIN-SUFFIX,mickeycloud.com
