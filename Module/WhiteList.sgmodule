@@ -1,6 +1,5 @@
 #!name=自用白名单
 #!desc=排除 AdBlock 的误伤和一些特殊需求
-#!system=iOS
 
 [Rule]
 DOMAIN-SUFFIX,tce.alicdn.com,DIRECT
