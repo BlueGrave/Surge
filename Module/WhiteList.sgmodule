@@ -10,13 +10,13 @@ DOMAIN,passportapi.115.com,DIRECT
 DOMAIN,tui.weibo.com,DIRECT
 
 # 屏蔽 iOS 企业证书失效
-#DOMAIN,ocsp.apple.com,REJECT
+# DOMAIN,ocsp.apple.com,REJECT
 
 # 解决 App Store 下载卡转圈
-#DOMAIN,p11-buy.itunes.apple.com,DEFAULT
-#DOMAIN,p14-buy.itunes.apple.com,DEFAULT
-#DOMAIN,p16-buy.itunes.apple.com,DEFAULT
-#DOMAIN,p21-buy.itunes.apple.com,DEFAULT
+# DOMAIN,p11-buy.itunes.apple.com,DEFAULT
+# DOMAIN,p14-buy.itunes.apple.com,DEFAULT
+# DOMAIN,p16-buy.itunes.apple.com,DEFAULT
+# DOMAIN,p21-buy.itunes.apple.com,DEFAULT
 
 # Emby AGA 公益服
 DOMAIN,emby.plusmedia.site,DIRECT
