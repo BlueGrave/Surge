@@ -2,11 +2,18 @@
 #!desc=排除 AdBlock 的误伤和一些特殊需求
 
 [Rule]
+# 淘宝推广
 DOMAIN-SUFFIX,tce.alicdn.com,DIRECT
+
+# 罗技官网
 DOMAIN-SUFFIX,accounts.logi.com,DIRECT
 DOMAIN-SUFFIX,ghub.logitech.io,DIRECT
 DOMAIN,gm.mmstat.com,DIRECT
+
+# 115 网盘
 DOMAIN,passportapi.115.com,DIRECT
+
+# 微博推广
 DOMAIN,tui.weibo.com,DIRECT
 
 # 随手记专业版
@@ -15,12 +22,6 @@ DOMAIN,weili.cardniu.com,DIRECT
 
 # 屏蔽 iOS 企业证书失效
 # DOMAIN,ocsp.apple.com,REJECT
-
-# 解决 App Store 下载卡转圈
-# DOMAIN,p11-buy.itunes.apple.com,DEFAULT
-# DOMAIN,p14-buy.itunes.apple.com,DEFAULT
-# DOMAIN,p16-buy.itunes.apple.com,DEFAULT
-# DOMAIN,p21-buy.itunes.apple.com,DEFAULT
 
 # Emby AGA 公益服
 DOMAIN,emby.plusmedia.site,DIRECT
