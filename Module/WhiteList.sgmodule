@@ -9,6 +9,10 @@ DOMAIN,gm.mmstat.com,DIRECT
 DOMAIN,passportapi.115.com,DIRECT
 DOMAIN,tui.weibo.com,DIRECT
 
+# 随手记专业版
+DOMAIN,data.flurry.com,DIRECT
+DOMAIN,weili.cardniu.com,DIRECT
+
 # 屏蔽 iOS 企业证书失效
 # DOMAIN,ocsp.apple.com,REJECT
 
