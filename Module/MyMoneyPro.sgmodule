@@ -2,6 +2,7 @@
 #!desc=随手记专业版去广告
 #!system=ios
 
+[Rule]
 DOMAIN,sync.feidee.net,DIRECT
 DOMAIN,userapi.feidee.net,REJECT
 DOMAIN,data.feidee.net,REJECT
