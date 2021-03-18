@@ -1,4 +1,4 @@
-#!name=A自用白名单
+#!name=Self-use WhiteList
 #!desc=排除 AdBlock 的误伤和一些特殊需求
 
 [Rule]
