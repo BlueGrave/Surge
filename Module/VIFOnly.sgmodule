@@ -1,5 +1,6 @@
 #!name=VIF Only
 #!desc=兼容模式
+#!system=ios
 
 [General]
 compatibility-mode = 3
