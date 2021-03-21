@@ -31,3 +31,11 @@ DOMAIN,emby.xeton.dev
 DOMAIN,jellyfin.xeton.dev
 DOMAIN,movie.xeton.dev
 DOMAIN,servers.xeton.dev
+
+# 4K 影视屋
+DOMAIN,emby2021.kozow.com
+
+# CloudFlare 公益服
+DOMAIN,cf.youremby.gq
+# AGA 香港公益服
+DOMAIN,aga.youremby.gq
