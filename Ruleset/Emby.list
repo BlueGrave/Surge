@@ -39,3 +39,9 @@ DOMAIN,emby2021.kozow.com
 DOMAIN,cf.youremby.gq
 # AGA 香港公益服
 DOMAIN,aga.youremby.gq
+
+USER-AGENT,Emby*
+DOMAIN-KEYWORD,emby
+DOMAIN-SUFFIX,mb3admin.com
+DOMAIN-SUFFIX,mickeycloud.com
+DOMAIN-SUFFIX,plusmedia.site
