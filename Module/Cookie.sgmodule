@@ -1,5 +1,5 @@
 #!name=Cookie
-#!desc=滴滴出行，腾讯视频，联通手厅
+#!desc=滴滴出行，腾讯视频，威锋网
 #!system=ios
 
 [Script]
@@ -9,10 +9,7 @@
 滴滴金融_获取 ActivityId 与 ChannelId = type=http-response,requires-body=1,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/didichuxing/didi_checkin.js,pattern=^https?:\/\/pay\.diditaxi\.com\.cn\/web_wallet\/v2\/wallet\/home
 滴滴出行_获取 GroupId = type=http-response,requires-body=1,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/didichuxing/didi_checkin.js,pattern=^https?:\/\/bosp-api\.xiaojukeji\.com\/wechat\/benefit\/public\/v2\/index
 腾讯视频_获取 Cookie = type=http-request,pattern=^https:\/\/access.video.qq.com\/user\/auth_refresh,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/videoqq/videoqq.cookie.js
-联通手厅签到1 = type=http-request,pattern=^https?:\/\/act.10010.com\/SigninApp\/signin\/querySigninActivity.htm,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/10010/10010.cookie.js
-联通手厅签到2 = type=http-request,pattern=^https?:\/\/act.10010.com\/SigninApp(.*?)\/signin\/daySign,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/10010/10010.cookie.js
-联通手厅签到3 = type=http-request,pattern=^https?:\/\/m.client.10010.com\/dailylottery\/static\/(textdl\/userLogin|active\/findActivityInfo),script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/10010/10010.cookie.js
-
+威锋网_获取 Cookie = type=http-request,pattern=^http:\/\/49.234.36.200:9091\/v1\/auth\/signin,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/feng/feng.cookie.js,requires-body=true
 
 [MITM]
-hostname = %APPEND% api.didialift.com,bosp-api.xiaojukeji.com,as.xiaojukeji.com,manhattan.webapp.xiaojukeji.com,pay.diditaxi.com.cn,*.video.qq.com,act.10010.com,m.client.10010.com
+hostname = %APPEND% api.didialift.com,bosp-api.xiaojukeji.com,as.xiaojukeji.com,manhattan.webapp.xiaojukeji.com,pay.diditaxi.com.cn,*.video.qq.com,act.10010.com,m.client.10010.com,49.234.36.200:9091
