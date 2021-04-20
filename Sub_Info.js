@@ -20,7 +20,7 @@ let params = getUrlParams($request.url);
 const url = params.url;
 
 (async () => {
-  let reset_day = parseInt(params["due_day"] ||params["reset_day"] || 1);
+  let reset_day = parseInt(params["due_day"] || params["reset_day"] || 1);
   
   let info = await getUserInfo();
   console.log('info:' + info)
