@@ -25,15 +25,16 @@ sub_info = type=http-request,pattern=http://t\.tt,script-path=https://raw.github
   let used = bytesToSize(usage.download + usage.upload);
   let total = bytesToSize(usage.total);
   let expire = usage.expire;
+  let ss = "ss, 127.0.0.1, 1234, encrypt-method=aes-128-gcm,password=1234";
   console.log(total)
-  let body = `Used: ${used} | Total: ${total} = ss, 1.2.3.4, 1234, encrypt-method=aes-128-gcm,password=1234`;
+  let body = `Used: ${used} | Total: ${total} = ${ss}`;
   if (reset_day) {
     let days = getRmainingDays(reset_day);
-    body += `\nTraffic Reset: ${days} Day${days == 1 ? "" : "s"} = ss, 1.2.3.4, 1234, encrypt-method=aes-128-gcm,password=1234`;
+    body += `\nTraffic Reset: ${days} Day${days == 1 ? "" : "s"} = ${ss}`;
   }
   if (expire) {
     expire = formatTimestamp(expire*1000);
-    body += `\nExpire Date: ${expire} = ss, 1.2.3.4, 1234, encrypt-method=aes-128-gcm,password=1234`;
+    body += `\nExpire Date: ${expire} = ${ss}`;
   }
   
     $done({response: {body}});
