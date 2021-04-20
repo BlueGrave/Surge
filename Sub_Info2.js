@@ -18,7 +18,7 @@ sub_info = type=http-request,pattern=http://t\.tt,script-path=https://raw.github
 
 (async () => {
   let params = getUrlParams($request.url);
-  let reset_day = parseInt(params["due_day"] ||params["reset_day"] || 1);
+  let reset_day = parseInt(params["due_day"] ||params["reset_day"]);
   
   let info = await getUserInfo(params.url);
   let usage = getDataUsage(info);
