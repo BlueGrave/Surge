@@ -80,7 +80,8 @@ function formatTimestamp( timestamp ) {
     var dateObj = new Date( timestamp );
     var year = dateObj.getYear() + 1900;
     var month = dateObj.getMonth() + 1;
-    month = month < 10 ? '0' + month : month
+    month = month < 10 ? '0' + month : month;
     var day = dateObj.getDate();
+    day = day < 10 ? '0' + day : day;
     return year +"-"+ month +"-" + day;      
 }
