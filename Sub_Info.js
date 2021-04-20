@@ -1,6 +1,6 @@
 /*
 Surge 中显示机场的流量信息
-作者 @mieqq
+作者 @mieqq & @congcong0806
 
 url请求头中必须带有流量信息, 并且需要urlencode
 
