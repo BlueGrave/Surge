@@ -24,8 +24,6 @@ sub_info = type=http-request,pattern=http://t\.tt,script-path=https://raw.github
   let usage = getDataUsage(info);
   let used = usage.download + usage.upload;
   let total = usage.total;
-//  let days = getRmainingDays(reset_day);
-//  let expire = usage.expire == undefined ? '' : formatTimestamp(usage.expire * 1000)
   let expire = usage.expire;
   console.log(total)
   let body = `Used: ${bytesToSize(used)} | Total: ${bytesToSize(total)}  = ss, 1.2.3.4, 1234, encrypt-method=aes-128-gcm,password=1234`;
@@ -48,14 +46,7 @@ function getUrlParams(url) {
    .map(([k, v]) => [k, decodeURIComponent(v)])
   );   
 }
-/*
-function getUserInfo(url) {
-  let headers = {"User-Agent" :"Quantumult X"}
-  let request = {headers, url}
-  return new Promise(resolve => $httpClient.head(request, (err, resp) => 
-resolve(resp.headers["subscription-userinfo"] || resp.headers["Subscription-userinfo"])));
-}
-*/
+
 function getUserInfo(url) {
   let headers = {"User-Agent" :"Quantumult X"}
   let request = {headers, url}
