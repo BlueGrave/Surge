@@ -25,7 +25,7 @@ sub_info = type=http-request,pattern=http://t\.tt,script-path=https://raw.github
   let used = usage.download + usage.upload;
   let total = usage.total;
   let days = getRmainingDays(reset_day);
-  let expire = usage.expire == undefined ? '' : ' | ' + formatTimestamp(usage.expire * 1000)
+  let expire = usage.expire == undefined ? '' : formatTimestamp(usage.expire * 1000)
   console.log(total)
   let body = `Used: ${bytesToSize(used)} | Total: ${bytesToSize(total)}  = ss, 1.2.3.4, 1234, encrypt-method=aes-128-gcm,password=1234
   Traffic Reset: ${days} Day${days == 1 ? "" : "s"}  = ss, 1.2.3.4, 1234, encrypt-method=aes-128-gcm,password=1234
