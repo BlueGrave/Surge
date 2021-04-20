@@ -1,4 +1,8 @@
 /*
+Surge 中显示机场的流量信息
+作者 @mieqq & @congcong0806
+结合两位大佬的脚本，根据自己的需求更改
+
 Surge配置参考注释，感谢@asukanana.
 ----------------------------------------
 先将带有流量信息的订阅链接encode，用encode后的链接替换"url="后面的xxx，"reset_day="后面的数字替换成流量每月重置的日期，如1号就写1，8号就写8。
@@ -6,13 +10,10 @@ Surge配置参考注释，感谢@asukanana.
 示例↓↓↓
 ----------------------------------------
 [Proxy Group]
-Name1 = select, policy-path=http://sub.info?url=xxx&reset_day=1
-
-Name2 = select, policy-path=http://sub.info?url=xxx&reset_day=8
+DlerCloud = select, policy-path=http://t.tt?url=xxx&reset_day=8, update-interval=3600
 
 [Script]
-Sub_info = type=http-request,pattern=http://sub\.info,script-path=https://raw.githubusercontent.com/mieqq/mieqq/master/sub_info.js
-----------------------------------------
+sub_info = type=http-request,pattern=http://t\.tt,script-path=https://raw.githubusercontent.com/BlueGrave/Surge/master/Sub_Info.js,script-update-interval=0
 */
 
 (async () => {
@@ -24,8 +25,9 @@ Sub_info = type=http-request,pattern=http://sub\.info,script-path=https://raw.gi
   let used = usage.download + usage.upload;
   let total = usage.total;
   let days = getRmainingDays(reset_day);
+  let expire = usage.expire == undefined ? '' : ' | ' + formatTimestamp(usage.expire * 1000)
   console.log(total)
-  let body = `${bytesToSize(used)} | ${bytesToSize(total)} | ${days} Day${days == 1 ? "" : "s"}  = ss, 1.2.3.4, 1234, encrypt-method=aes-128-gcm,password=1234`;
+  let body = `${bytesToSize(used)}/${bytesToSize(total)} | ${days} Day${days == 1 ? "" : "s"}${expire}  = ss, 1.2.3.4, 1234, encrypt-method=aes-128-gcm,password=1234`;
   
     $done({response: {body}});
 })();
@@ -70,4 +72,13 @@ function bytesToSize(bytes) {
     sizes = ['B','KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
     i = Math.floor(Math.log(bytes) / Math.log(k));
     return (bytes / Math.pow(k, i)).toFixed(2) + " " + sizes[i];
+}
+
+function formatTimestamp( timestamp ) {
+    var dateObj = new Date( timestamp );
+    var year = dateObj.getYear() + 1900;
+    var month = dateObj.getMonth() + 1;
+    month = month < 10 ? '0' + month : month
+    var day = dateObj.getDate();
+    return year +"-"+ month +"-" + day;      
 }
