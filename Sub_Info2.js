@@ -22,18 +22,18 @@ sub_info = type=http-request,pattern=http://t\.tt,script-path=https://raw.github
   
   let info = await getUserInfo(params.url);
   let usage = getDataUsage(info);
-  let used = usage.download + usage.upload;
-  let total = usage.total;
+  let used = bytesToSize(usage.download + usage.upload);
+  let total = bytesToSize(usage.total);
   let expire = usage.expire;
   console.log(total)
-  let body = `Used: ${bytesToSize(used)} | Total: ${bytesToSize(total)}  = ss, 1.2.3.4, 1234, encrypt-method=aes-128-gcm,password=1234`;
+  let body = `Used: ${used} | Total: ${total} = ss, 1.2.3.4, 1234, encrypt-method=aes-128-gcm,password=1234`;
   if (reset_day) {
     let days = getRmainingDays(reset_day);
-    body += `\nTraffic Reset: ${days} Day${days == 1 ? "" : "s"}  = ss, 1.2.3.4, 1234, encrypt-method=aes-128-gcm,password=1234`;
+    body += `\nTraffic Reset: ${days} Day${days == 1 ? "" : "s"} = ss, 1.2.3.4, 1234, encrypt-method=aes-128-gcm,password=1234`;
   }
   if (expire) {
     expire = formatTimestamp(expire*1000);
-    body += `\nExpire Date: ${expire}  = ss, 1.2.3.4, 1234, encrypt-method=aes-128-gcm,password=1234`;
+    body += `\nExpire Date: ${expire} = ss, 1.2.3.4, 1234, encrypt-method=aes-128-gcm,password=1234`;
   }
   
     $done({response: {body}});
