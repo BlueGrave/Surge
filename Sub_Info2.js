@@ -38,8 +38,6 @@ sub_info = type=http-request,pattern=http://t\.tt,script-path=https://raw.github
     body += `\nExpire Date: ${expire}  = ss, 1.2.3.4, 1234, encrypt-method=aes-128-gcm,password=1234`;
   }
   
-  ``;
-  
     $done({response: {body}});
 })();
 
