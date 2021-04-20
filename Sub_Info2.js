@@ -24,12 +24,21 @@ sub_info = type=http-request,pattern=http://t\.tt,script-path=https://raw.github
   let usage = getDataUsage(info);
   let used = usage.download + usage.upload;
   let total = usage.total;
-  let days = getRmainingDays(reset_day);
-  let expire = usage.expire == undefined ? '' : formatTimestamp(usage.expire * 1000)
+//  let days = getRmainingDays(reset_day);
+//  let expire = usage.expire == undefined ? '' : formatTimestamp(usage.expire * 1000)
+  let expire = usage.expire;
   console.log(total)
-  let body = `Used: ${bytesToSize(used)} | Total: ${bytesToSize(total)}  = ss, 1.2.3.4, 1234, encrypt-method=aes-128-gcm,password=1234
-  Traffic Reset: ${days} Day${days == 1 ? "" : "s"}  = ss, 1.2.3.4, 1234, encrypt-method=aes-128-gcm,password=1234
-  Expire Date: ${expire}  = ss, 1.2.3.4, 1234, encrypt-method=aes-128-gcm,password=1234`;
+  let body = `Used: ${bytesToSize(used)} | Total: ${bytesToSize(total)}  = ss, 1.2.3.4, 1234, encrypt-method=aes-128-gcm,password=1234`;
+  if (reset_day) {
+    let days = getRmainingDays(reset_day);
+    body += `\nTraffic Reset: ${days} Day${days == 1 ? "" : "s"}  = ss, 1.2.3.4, 1234, encrypt-method=aes-128-gcm,password=1234`;
+  }
+  if (expire) {
+    expire = formatTimestamp(expire*1000);
+    body += `\nExpire Date: ${expire}  = ss, 1.2.3.4, 1234, encrypt-method=aes-128-gcm,password=1234`;
+  }
+  
+  ``;
   
     $done({response: {body}});
 })();
@@ -41,12 +50,19 @@ function getUrlParams(url) {
    .map(([k, v]) => [k, decodeURIComponent(v)])
   );   
 }
-
+/*
 function getUserInfo(url) {
   let headers = {"User-Agent" :"Quantumult X"}
   let request = {headers, url}
   return new Promise(resolve => $httpClient.head(request, (err, resp) => 
 resolve(resp.headers["subscription-userinfo"] || resp.headers["Subscription-userinfo"])));
+}
+*/
+function getUserInfo(url) {
+  let headers = {"User-Agent" :"Quantumult X"}
+  let request = {headers, url}
+  return new Promise(resolve => $httpClient.head(request, (err, resp) => 
+resolve(resp.headers["subscription-userinfo"] || resp.headers["Subscription-userinfo"] || resp.headers["Subscription-Userinfo"])));
 }
 
 function getDataUsage(info) {
