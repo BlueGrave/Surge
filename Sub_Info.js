@@ -1,73 +1,63 @@
 /*
-Surge 中显示机场的流量信息
-作者 @mieqq & @congcong0806
-结合两位大佬的脚本，根据自己的需求更改
-
-Surge配置参考注释，感谢@asukanana.
+Surge配置参考注释，感谢@asukanana，感谢@congcong.
 ----------------------------------------
 先将带有流量信息的订阅链接encode，用encode后的链接替换"url="后面的xxx，"reset_day="后面的数字替换成流量每月重置的日期，如1号就写1，8号就写8。
 如需显示多个机场的信息，可以参照上述方法创建多个策略组以显示不同机场的信息，将Name替换成机场名字即可，脚本只需要一个。
 示例↓↓↓
 ----------------------------------------
 [Proxy Group]
-DlerCloud = select, policy-path=http://t.tt?url=xxx&reset_day=1, update-interval=3600
+Name1 = select, policy-path=http://sub.info?url=xxx&reset_day=1
+
+Name2 = select, policy-path=http://sub.info?url=xxx&reset_day=8
 
 [Script]
-sub_info = type=http-request,pattern=http://t\.tt,script-path=https://raw.githubusercontent.com/BlueGrave/Surge/master/Sub_Info.js,script-update-interval=0
+Sub_info = type=http-request,pattern=http://sub\.info,script-path=https://raw.githubusercontent.com/mieqq/mieqq/master/sub_info.js
+----------------------------------------
 */
 
-let params = getUrlParams($request.url);
-const url = params.url;
-
 (async () => {
-  let reset_day = parseInt(params["due_day"] || params["reset_day"] || 1);
+  let params = getUrlParams($request.url);
+  let reset_day = parseInt(params["due_day"] ||params["reset_day"]);
   
-  let info = await getUserInfo();
-  console.log('info:' + info)
+  let info = await getUserInfo(params.url);
   let usage = getDataUsage(info);
   let used = bytesToSize(usage.download + usage.upload);
   let total = bytesToSize(usage.total);
-  let days = getRmainingDays(reset_day);
-  let expire = usage.expire == undefined ? '' : ' | ' + formatTimestamp(usage.expire * 1000)
-  let body = `${used}/${total} | ${days} Day${days == 1 ? "" : "s"}${expire}  = ss, 1.2.3.4, 1234, encrypt-method=aes-128-gcm,password=1234`;
+  let expire = usage.expire || params.expire;
+  let http = "http, localhost, 6176";
+  let body = `Usage: ${used} | ${total}=${http}`;
+  if (reset_day) {
+    let days = getRmainingDays(reset_day);
+    body += `\nTraffic Reset: ${days} Day${days == 1 ? "" : "s"}=${http}`;
+  }
+  if (expire) {
+    expire = formatTimestamp(expire*1000);
+    body += `\nExpire Date: ${expire}=${http}`;
+  }
+  
     $done({response: {body}});
 })();
 
-function getUrlParams(search) {
-    const hashes = search.slice(search.indexOf('?') + 1).split('&')
-    const params = {}
-    hashes.map(hash => {
-        const [key, val] = hash.split('=')
-        params[key] = decodeURIComponent(val)
-    })
-    return params
+function getUrlParams(url) {
+  return Object.fromEntries(
+    url.slice(url.indexOf('?') + 1).split('&')
+   .map(item => item.split("="))
+   .map(([k, v]) => [k, decodeURIComponent(v)])
+  );   
 }
 
-function getUserInfo() {
-  return new Promise(resolve => $httpClient.head(url, (err, resp) => resolve(resp.headers["subscription-userinfo"] || resp.headers["Subscription-userinfo"])));
+function getUserInfo(url) {
+  let headers = {"User-Agent" :"Quantumult X"}
+  let request = {headers, url}
+  return new Promise(resolve => $httpClient.head(request, (err, resp) => 
+resolve(resp.headers["subscription-userinfo"] || resp.headers["Subscription-userinfo"] || resp.headers["Subscription-Userinfo"])));
 }
 
 function getDataUsage(info) {
   return Object.fromEntries(
-    info.split("; ").map(item => item.split("=")).map(([k, v]) => [k,parseInt(v)])
+    info.match(/\w+=\d+/g).map(item => item.split("="))
+    .map(([k, v]) => [k,parseInt(v)])
   );
-}
-
-function bytesToSize(bytes) {
-    if (bytes === 0) return '0B';
-    var k = 1024;
-    sizes = ['B','KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
-    i = Math.floor(Math.log(bytes) / Math.log(k));
-    return (bytes / Math.pow(k, i)).toFixed(2) + sizes[i];
-}
-
-function formatTimestamp( timestamp ) {
-    var dateObj = new Date( timestamp );
-    var year = dateObj.getYear() + 1900;
-    var month = dateObj.getMonth() + 1;
-    month = month < 10 ? '0' + month : month
-    var day = dateObj.getDate();
-    return year +"-"+ month +"-" + day;      
 }
 
 function getRmainingDays(reset_day) {
@@ -80,3 +70,21 @@ function getRmainingDays(reset_day) {
   
   return daysInMonth - today + reset_day;
 }
+
+function bytesToSize(bytes) {
+    bytes = parseInt(bytes);
+    if (bytes === 0) return '0B';
+    let k = 1024;
+    sizes = ['B','KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+    let i = Math.floor(Math.log(bytes) / Math.log(k));
+    return (bytes / Math.pow(k, i)).toFixed(2) + " " + sizes[i];
+}
+
+function formatTimestamp( timestamp ) {
+    let dateObj = new Date( timestamp );
+    let year = dateObj.getFullYear();
+    let month = dateObj.getMonth() + 1;
+    month = month < 10 ? '0' + month : month
+    let day = dateObj.getDate();
+    day = day < 10 ? '0' + day : day
+    return year +"-"+ month +"-" + day;
