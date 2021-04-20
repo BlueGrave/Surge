@@ -28,8 +28,8 @@ const url = params.url;
   let used = bytesToSize(usage.download + usage.upload);
   let total = bytesToSize(usage.total);
   let days = getRmainingDays(reset_day);
-  let expire = usage.expire == undefined ? '' : formatTimestamp(usage.expire * 1000)
-  let body = `${used}/${total} | ${days} Day${days == 1 ? "" : "s"} | ${expire}  = ss, 1.2.3.4, 1234, encrypt-method=aes-128-gcm,password=1234`;
+  let expire = usage.expire == undefined ? '' : ' | ' + formatTimestamp(usage.expire * 1000)
+  let body = `${used}/${total} | ${days} Day${days == 1 ? "" : "s"}${expire}  = ss, 1.2.3.4, 1234, encrypt-method=aes-128-gcm,password=1234`;
     $done({response: {body}});
 })();
 
