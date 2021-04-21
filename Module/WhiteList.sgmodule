@@ -1,6 +1,5 @@
 #!name=WhiteList
 #!desc=排除 AdBlock 误伤和一些特殊规则
-#!system=ios
 
 [Rule]
 # 淘宝推广
