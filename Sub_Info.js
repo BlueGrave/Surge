@@ -126,8 +126,8 @@ function sendNotification(usage, resetLeft, expire, params, infoList) {
     $notification.post(`${title} 剩余流量不足${parseInt((1-used/usage.total)*100)}%`,subtitle, body);
     count.used += 1;
   }
-  if (resetLeft && count.resetLeft < 1) {
-    if (resetLeft < 2) {
+  if (resetLeft && count.resetLeft < 10) {
+    if (resetLeft < 20) {
       $notification.post(`${title} 流量将在${resetLeft}天后重置`, subtitle, body);
       count.resetLeft += 1; 
     } else if (today == resetDay) {
