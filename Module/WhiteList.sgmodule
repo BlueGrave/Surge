@@ -26,3 +26,6 @@ DOMAIN,emby.plusmedia.site,DIRECT
 AND,((DOMAIN-SUFFIX,googlevideo.com), (PROTOCOL,UDP)),REJECT,notification-text="🚫 YouTube UDP Packages are Blocked",notification-interval=600
 AND,((DOMAIN-SUFFIX,gvt1.com), (PROTOCOL,UDP)),REJECT,notification-text="🚫 YouTube UDP Packages are Blocked",notification-interval=600
 AND,((DOMAIN-SUFFIX,cdninstagram.com), (PROTOCOL,UDP)),REJECT,notification-text="🚫 Instagram UDP Packages are Blocked",notification-interval=600
+
+# 屏蔽勾正数据
+DOMAIN-SUGFIX,gz-data.com,REJECT
