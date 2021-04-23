@@ -10,10 +10,10 @@ Surge配置参考注释，感谢@asukanana.
 示例↓↓↓
 ----------------------------------------
 [Proxy Group]
-DlerCloud = select, policy-path=http://t.tt?url=xxx&reset_day=8, update-interval=3600
+DlerCloud = select, policy-path=http://sub.info?url=xxx&reset_day=8, update-interval=3600
 
 [Script]
-sub_info = type=http-request,pattern=http://t\.tt,script-path=https://raw.githubusercontent.com/BlueGrave/Surge/master/Sub_Info.js,script-update-interval=0
+sub_info = type=http-request,pattern=http://sub\.info,script-path=https://raw.githubusercontent.com/BlueGrave/Surge/master/Sub_Info.js,script-update-interval=0
 */
 
 (async () => {
