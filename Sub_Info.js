@@ -122,12 +122,12 @@ function sendNotification(usage, resetLeft, expire, params, infoList) {
   let used = usage.download + usage.upload;
   let resetDay = params["due_day"] || params["reset_day"]; 
   
-  if (used/usage.total > 0.8 && count.used < 1) {
+  if (used/usage.total > 0.8 && count.used < 100) {
     $notification.post(`${title} 剩余流量不足${parseInt((1-used/usage.total)*100)}%`,subtitle, body);
     count.used += 1;
   }
-  if (resetLeft && count.resetLeft < 10) {
-    if (resetLeft < 20) {
+  if (resetLeft && count.resetLeft < 100) {
+    if (resetLeft < 4) {
       $notification.post(`${title} 流量将在${resetLeft}天后重置`, subtitle, body);
       count.resetLeft += 1; 
     } else if (today == resetDay) {
@@ -135,7 +135,7 @@ function sendNotification(usage, resetLeft, expire, params, infoList) {
       count.resetLeft += 1; 
     }
   }
-  if (expire && count.expire < 1) {
+  if (expire && count.expire < 100) {
     let diff = (new Date(expire) - new Date()) / (1000*3600*24);
     if (diff < 10) {
       $notification.post(`${title} 套餐剩余时间不足${Math.ceil(diff)}天`, subtitle, body);
