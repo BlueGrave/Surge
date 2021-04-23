@@ -28,16 +28,16 @@ Sub_info = type=http-request,pattern=http://sub\.info,script-path=https://raw.gi
   let resetLeft = getRmainingDays(resetDay);
 
   let localProxy = "=http, localhost, 6152";
-  let infoList = [`Used: ${used} | Total: ${total}`];
+  let infoList = [`流量： ${used} | ${total}`];
   
   if (resetLeft) {
-    infoList.push(`Traffic Reset: ${resetLeft} Day${resetLeft == 1 ? "" : "s"}`);
+    infoList.push(`重置： ${resetLeft} Day${resetLeft == 1 ? "" : "s"}`);
   }
   if (expire) {
     if (/^[\d]+$/.test(expire)) {
       expire = formatTimestamp(expire*1000);
     }
-    infoList.push(`Expire Date: ${expire}`);
+    infoList.push(`到期： ${expire}`);
   }
     sendNotification(usage, resetLeft, expire, params, infoList);
     let body = infoList.map(item => item + localProxy).join("\n");
@@ -123,22 +123,22 @@ function sendNotification(usage, resetLeft, expire, params, infoList) {
   let resetDay = params["due_day"] || params["reset_day"]; 
   
   if (used/usage.total > 0.8 && count.used < 1) {
-    $notification.post(`${title} | 剩余流量不足${parseInt((1-used/usage.total)*100)}%`,subtitle, body);
+    $notification.post(`${title} 剩余流量不足${parseInt((1-used/usage.total)*100)}%`,subtitle, body);
     count.used += 1;
   }
   if (resetLeft && count.resetLeft < 1) {
     if (resetLeft < 2) {
-      $notification.post(`${title} | 流量将在${resetLeft}天后重置`, subtitle, body);
+      $notification.post(`${title} 流量将在${resetLeft}天后重置`, subtitle, body);
       count.resetLeft += 1; 
     } else if (today == resetDay) {
-      $notification.post(`${title} | 流量已重置`, subtitle, body);
+      $notification.post(`${title} 流量已重置`, subtitle, body);
       count.resetLeft += 1; 
     }
   }
   if (expire && count.expire < 1) {
     let diff = (new Date(expire) - new Date()) / (1000*3600*24);
     if (diff < 10) {
-      $notification.post(`${title} | 套餐剩余时间不足${Math.ceil(diff)}天`, subtitle, body);
+      $notification.post(`${title} 套餐剩余时间不足${Math.ceil(diff)}天`, subtitle, body);
       count.expire += 1;
     } 
   }
