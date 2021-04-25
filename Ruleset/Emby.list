@@ -26,7 +26,7 @@ DOMAIN,embyserver.ga
 # CF 公益服
 DOMAIN,emby-cf.plusmedia.site
 # AGA 公益服
-# DOMAIN,emby.plusmedia.site
+DOMAIN,emby.plusmedia.site
 
 # 备用公益服 1-4
 DOMAIN,emby.xeton.dev
