@@ -19,9 +19,6 @@ DOMAIN,tui.weibo.com,DIRECT
 # 屏蔽 iOS 企业证书失效
 # DOMAIN,ocsp.apple.com,REJECT
 
-# Emby AGA 公益服
-DOMAIN,emby.plusmedia.site,DIRECT
-
 # Block UDP
 AND,((DOMAIN-SUFFIX,googlevideo.com), (PROTOCOL,UDP)),REJECT,notification-text="🚫 YouTube UDP Packages are Blocked",notification-interval=600
 AND,((DOMAIN-SUFFIX,gvt1.com), (PROTOCOL,UDP)),REJECT,notification-text="🚫 YouTube UDP Packages are Blocked",notification-interval=600
