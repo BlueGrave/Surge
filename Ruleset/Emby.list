@@ -42,6 +42,9 @@ DOMAIN,cf.youremby.gq
 # AGA 香港公益服
 DOMAIN,aga.youremby.gq
 
+# 网络跳跃公益服
+# DOMAIN,hijklsp.changweicat.shop
+
 USER-AGENT,Emby*
 DOMAIN-KEYWORD,emby
 DOMAIN-SUFFIX,mb3admin.com
