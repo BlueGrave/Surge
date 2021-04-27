@@ -17,7 +17,9 @@ DOMAIN,passportapi.115.com,DIRECT
 DOMAIN,tui.weibo.com,DIRECT
 
 # 屏蔽 iOS 企业证书失效
+# DOMAIN,ocsp-lb.apple.com.akadns.net,REJECT
 # DOMAIN,ocsp.apple.com,REJECT
+# DOMAIN,ocsp.g.aaplimg.com,REJECT
 
 # Block UDP
 AND,((DOMAIN-SUFFIX,googlevideo.com), (PROTOCOL,UDP)),REJECT,notification-text="🚫 YouTube UDP Packages are Blocked",notification-interval=600
