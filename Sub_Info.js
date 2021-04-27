@@ -37,7 +37,7 @@ let resetLeft = getRmainingDays(resetDay);
   let total = usage.total;
   let expire = usage.expire || params.expire;
   let localProxy = "=http, localhost, 6152";
-  let infoList = [`套餐用量：${bytesToSize(used)} | ${bytesToSize(total)}`];
+  let infoList = [`${bytesToSize(used)} | ${bytesToSize(total)}`];
   
   if (resetLeft) {
     infoList.push(`流量重置：剩余${resetLeft}天`);
