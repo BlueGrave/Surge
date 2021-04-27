@@ -1,45 +1,52 @@
 /*
-Surge配置参考注释，作者@mieqq,感谢@asukanana,感谢@congcong.
-根据自己的需求修改
+Surge配置参考注释，感谢@asukanana,感谢@congcong.
+作者：@mieqq
+示例↓↓↓ 
 ----------------------------------------
-先将带有流量信息的订阅链接encode，用encode后的链接替换"url="后面的xxx，"reset_day="后面的数字替换成流量每月重置的日期，如1号就写1，8号就写8。
-机场链接不带expire信息的，可以手动传入expire参数，如"expire=2022-02-01"
-增加参数"alert=1"，流量用量超过80%，流量重置2天前、套餐到期10天前会发送通知，参数"title=xxx" 可以自定义通知的标题。
-如需显示多个机场的信息，可以参照上述方法创建多个策略组以显示不同机场的信息，将Name替换成机场名字即可，脚本只需要一个。
-示例↓↓↓
-----------------------------------------
+
 [Proxy Group]
-Name1 = select, policy-path=http://sub.info?url=xxx&reset_day=1
-Name2 = select, policy-path=http://sub.info?url=xxx&reset_day=8&expire=2022-02-01&alert=1&title=Name2
+AmyInfo = select, policy-path=http://sub.info?url=机场节点链接&reset_day=1&alert=1
+
 [Script]
-Sub_info = type=http-request,pattern=http://sub\.info,script-path=https://raw.githubusercontent.com/BlueGrave/Surge/master/sub_info.js
+Sub_info = type=http-request,pattern=http://sub\.info,script-path=https://raw.githubusercontent.com/mieqq/mieqq/master/sub_info.js
+----------------------------------------
+
+脚本不用修改，直接配置就好。
+
+先将带有流量信息的节点订阅链接encode，用encode后的链接替换"url="后面的[机场节点链接]
+
+可选参数 &reset_day，后面的数字替换成流量每月重置的日期，如1号就写1，8号就写8。如"&reset_day=8",不加该参数不显示流量重置信息。
+
+可选参数 &expire，机场链接不带expire信息的，可以手动传入expire参数，如"&expire=2022-02-01",注意一定要按照yyyy-MM-dd的格式。
+
+可选参数 &alert，流量用量超过80%，流量重置2天前、套餐快到期，这四种情况会发送通知，参数"title=xxx" 可以自定义通知的标题。如"&alert=1&title=AmyInfo"
 ----------------------------------------
 */
 
+let now = new Date();
+let today = now.getDate();
+let month = now.getMonth();
+let year = now.getFullYear();
+let params = getUrlParams($request.url);
+let resetDay = parseInt(params["due_day"] || params["reset_day"]); 
+let resetLeft = getRmainingDays(resetDay);
+
 (async () => {
-  let params = getUrlParams($request.url);
-
   let usage = await getDataUsage(params.url);
-  let used = bytesToSize(usage.download + usage.upload);
-  let total = bytesToSize(usage.total);
-
+  let used = usage.download + usage.upload;
+  let total = usage.total;
   let expire = usage.expire || params.expire;
-  let resetDay = parseInt(params["due_day"] || params["reset_day"]); 
-  let resetLeft = getRmainingDays(resetDay);
-
   let localProxy = "=http, localhost, 6152";
-  let infoList = [`流量：${used} | ${total}`];
+  let infoList = [`套餐用量：${bytesToSize(used)} | ${bytesToSize(total)}`];
   
   if (resetLeft) {
-    infoList.push(`重置：${resetLeft} Day${resetLeft == 1 ? "" : "s"}`);
+    infoList.push(`流量重置：剩余${resetLeft}天`);
   }
   if (expire) {
-    if (/^[\d]+$/.test(expire)) {
-      expire = formatTimestamp(expire*1000);
-    }
-    infoList.push(`到期：${expire}`);
+    if (/^[\d]+$/.test(expire)) expire *= 1000;
+    infoList.push(`套餐到期：${formatTime(expire)}`);
   }
-    sendNotification(usage, resetLeft, expire, params, infoList);
+    sendNotification(used/total, expire, infoList);
     let body = infoList.map(item => item + localProxy).join("\n");
     $done({response: {body}});
 })();
@@ -65,22 +72,18 @@ function getUserInfo(url) {
 async function getDataUsage(url) {
   let info = await getUserInfo(url);
   if (!info) {
-    $notification.post("SubInfo","","链接响应头不带有流量信息")
+    $notification.post("SubInfo", "", "链接响应头不带有流量信息")
     $done();
   }
   return Object.fromEntries(
     info.match(/\w+=\d+/g).map(item => item.split("="))
-    .map(([k, v]) => [k,parseInt(v)])
+    .map(([k, v]) => [k, parseInt(v)])
   );
 }
 
 function getRmainingDays(resetDay) {
   if (!resetDay) return 0;
-  let now = new Date();
-  let today = now.getDate();
-  let month = now.getMonth() + 1;
-  let year = now.getFullYear();
-  let daysInMonth = new Date(year, month, 0).getDate();
+  let daysInMonth = new Date(year, month+1, 0).getDate();
   if (resetDay > today) daysInMonth = 0;
   
   return daysInMonth - today + resetDay;
@@ -89,58 +92,60 @@ function getRmainingDays(resetDay) {
 function bytesToSize(bytes) {
     if (bytes === 0) return '0B';
     let k = 1024;
-    sizes = ['B','KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+    sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
     let i = Math.floor(Math.log(bytes) / Math.log(k));
     return (bytes / Math.pow(k, i)).toFixed(2) + " " + sizes[i];
 }
 
-function formatTimestamp( timestamp ) {
-    let dateObj = new Date( timestamp );
+function formatTime( time ) {
+    let dateObj = new Date( time );
     let year = dateObj.getFullYear();
     let month = dateObj.getMonth() + 1;
-    month = month < 10 ? '0' + month : month
     let day = dateObj.getDate();
-    day = day < 10 ? '0' + day : day
-    return year +"-"+ month +"-" + day;
+    return year + "年" + month + "月" + day + "日";
 }
 
-function sendNotification(usage, resetLeft, expire, params, infoList) {
+function sendNotification(usageRate, expire, infoList) {
   if (!params.alert) return;
-  
-  let today = new Date().getDate();
-  //计数器，每天重置
-  let Counter = JSON.parse($persistentStore.read("SubInfo") || '{}')
-  if (!Counter[today]) {
-    Counter = {[today]: {"used": 0,"resetLeft": 0,"expire": 0,}}
+
+  if (resetDay <= today) month += 1;
+  let resetTime = new Date(year, month, resetDay);
+  //通知计数器，每月重置日重置
+  let notifyCounter = JSON.parse($persistentStore.read("SubInfo") || '{}')
+  if (!notifyCounter[resetTime]) {
+    notifyCounter = {[resetTime]: {"usageRate": 80, "resetLeft": 3, "expire": 31, "resetDay": 1}}
   }
   
-  let count = Counter[today];
+  let count = notifyCounter[resetTime];
 
   let title = params.title || "Sub Info";
   let subtitle = infoList[0];
   let body = infoList.slice(1).join("\n");
-  let used = usage.download + usage.upload;
-  let resetDay = params["due_day"] || params["reset_day"]; 
+  usageRate = usageRate * 100;
   
-  if (used/usage.total > 0.8 && count.used < 100) {
-    $notification.post(`${title} 剩余流量不足${parseInt((1-used/usage.total)*100)}%`,subtitle, body);
-    count.used += 1;
-  }
-  if (resetLeft && count.resetLeft < 100) {
-    if (resetLeft < 4) {
-      $notification.post(`${title} 流量将在${resetLeft}天后重置`, subtitle, body);
-      count.resetLeft += 1; 
-    } else if (today == resetDay) {
-      $notification.post(`${title} 流量已重置`, subtitle, body);
-      count.resetLeft += 1; 
+  if (usageRate > count.usageRate) {
+    $notification.post(`${title} | 剩余流量不足${Math.ceil(100 - usageRate)}%`, subtitle, body);
+    while (usageRate > count.usageRate) {
+      if (count.usageRate < 95) {
+        count.usageRate += 5;
+      } else {
+        count.usageRate += 4;
+      }
     }
   }
-  if (expire && count.expire < 100) {
-    let diff = (new Date(expire) - new Date()) / (1000*3600*24);
-    if (diff < 10) {
-      $notification.post(`${title} 套餐剩余时间不足${Math.ceil(diff)}天`, subtitle, body);
-      count.expire += 1;
+  if (resetLeft && resetLeft < count.resetLeft) {
+    $notification.post(`${title} | 流量将在${resetLeft}天后重置`, subtitle, body);
+    count.resetLeft = resetLeft;
+  }
+  if (resetDay == today && count.resetDay) {
+     $notification.post(`${title} | 流量已重置`, subtitle, body);
+    count.resetDay = 0;
+  }
+  if (expire) {
+    let diff = (new Date(expire) - now) / (1000*3600*24);
+    if (diff < count.expire) {
+      $notification.post(`${title} | 套餐剩余时间不足${Math.ceil(diff)}天`, subtitle, body);
+      count.expire -= 5;
     } 
   }
-  $persistentStore.write(JSON.stringify(Counter),"SubInfo");
-}
+  $persistentStore.write(JSON.stringify(notifyCounter),"SubInfo");
