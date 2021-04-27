@@ -1,12 +1,36 @@
 # 屏蔽 AppleOS 更新
-# iOS
+# iOS Update
 DOMAIN,ns.itunes.apple.com
 DOMAIN,gdmf.apple.com
+DOMAIN,gdmf.apple.com.akadns.net
+DOMAIN,appldnld-lb.apple.com.akadns.net
 DOMAIN,appldnld.apple.com
+DOMAIN,appldnld.apple.com.akadns.net
+DOMAIN,appldnld.g.aaplimg.com
 DOMAIN,ipsw.me
 
 # iOS, tvOS and macOS
+DOMAIN,mesu-cdn.apple.com.akadns.net
+DOMAIN,mesu-cdn.origin-apple.com.akadns.net
 DOMAIN,mesu.apple.com
+DOMAIN,mesu.g.aaplimg.com
 DOMAIN,updates.cdn-apple.com
 DOMAIN,updates-http.cdn-apple.com
 DOMAIN,xp.apple.com
+
+# macOS Update
+DOMAIN,gg.apple.com
+DOMAIN,gnf-mdn.apple.com
+DOMAIN,gnf-mr.apple.com
+DOMAIN,gs.apple.com
+DOMAIN,ig.apple.com
+DOMAIN,skl.apple.com
+DOMAIN,swcdn.apple.com
+DOMAIN,swdist.apple.com
+DOMAIN,swdownload.apple.com
+DOMAIN,swpost.apple.com
+DOMAIN,swscan.apple.com
+
+# macOS Recovery
+DOMAIN,oscdn.apple.com
+DOMAIN,osrecovery.apple.com
