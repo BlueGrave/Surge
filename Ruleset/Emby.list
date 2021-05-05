@@ -39,10 +39,10 @@ DOMAIN,servers.xeton.dev
 # 4K 影视屋
 DOMAIN,emby2021.kozow.com
 
-# CloudFlare 公益服
-DOMAIN,cf.youremby.gq
-# AGA 香港公益服
-DOMAIN,aga.youremby.gq
+# Odyssey+ CloudFlare 公益服
+DOMAIN,shogouki.youremby.gq
+# Odyssey+ AGA 香港公益服
+DOMAIN,aga01.youremby.gq
 
 # 网络跳跃公益服
 # DOMAIN,hijklsp.changweicat.shop
