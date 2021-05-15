@@ -25,6 +25,7 @@ DOMAIN,embyserver.ga
 # ImmTelecom
 DOMAIN,emby.immtel.com
 
+# 普拉斯
 # CF 公益服
 DOMAIN,emby-cf.plusmedia.site
 # AGA 公益服
@@ -40,10 +41,21 @@ DOMAIN,servers.xeton.dev
 # 4K 影视屋
 DOMAIN,emby2021.kozow.com
 
-# Odyssey+ CloudFlare 公益服
+# Odyssey+
+# CloudFlare 公益服
 DOMAIN,shogouki.youremby.gq
-# Odyssey+ AGA 香港公益服
+# AGA 香港公益服
 DOMAIN,aga01.youremby.gq
+
+# 卷毛鼠
+# CF 通用
+DOMAIN,cf1.jmsooo.com
+# 新加坡 AWS
+DOMAIN,sg.jmsooo.com
+
+# OtakuDrive
+# CF
+DOMAIN,emby.neko.edu.rs
 
 # 网络跳跃公益服
 # DOMAIN,hijklsp.changweicat.shop
