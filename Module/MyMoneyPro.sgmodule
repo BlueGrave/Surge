@@ -22,6 +22,9 @@ DOMAIN,weili.cardniu.com,REJECT
 DOMAIN-SUFFIX,ssjlicai.com,REJECT
 DOMAIN,m.sui.com,REJECT
 DOMAIN,sf3-ttcdn-tos.pstatp.com,REJECT
+DOMAIN,sf3-fe-tos.pglstatp-toutiao.com,REJECT
+DOMAIN,dm.bytedance.com,REJECT
+DOMAIN,idaa.shuzilm.cn,REJECT
 DOMAIN,qzs.qq.com,REJECT
 AND,((DOMAIN,app-measurement.com), (USER-AGENT,MyMoneyPro*)),REJECT
 AND,((DOMAIN,firebaselogging-pa.googleapis.com), (USER-AGENT,MyMoneyPro*)),REJECT
