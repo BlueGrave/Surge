@@ -12,6 +12,7 @@ DOMAIN,oss.feidee.net,REJECT
 DOMAIN,ab.feidee.net,REJECT
 DOMAIN,invest.feidee.net,REJECT
 DOMAIN,pull.feidee.net,REJECT
+DOMAIN,yun.feidee.net,REJECT
 DOMAIN,message.feidee.com,REJECT
 DOMAIN,bbs.feidee.com,REJECT
 DOMAIN,bbsapi.feidee.com,REJECT
