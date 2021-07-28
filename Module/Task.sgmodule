@@ -1,5 +1,5 @@
 #!name=Task
-#!desc=滴滴出行，腾讯视频，汇率监控，京豆兑换
+#!desc=滴滴出行，腾讯视频，汇率监控，京豆兑换，京东签到，爱奇艺签到
 #!system=ios
 
 [Script]
@@ -9,3 +9,4 @@
 威锋网_每日签到 = type=cron,cronexp=2 0 * * *,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/feng/feng.js
 京东汽车兑换 = type=cron,cronexp="0 0 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/panghu999/jd_scripts/master/jd_car_exchange.js
 京东多合一签到 = type=cron,cronexp=5 0 * * *,wake-system=1,timeout=60,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js
+爱奇艺签到 = type=cron,cronexp=3 0 * * *,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/iQIYI-DailyBonus/iQIYI.js
