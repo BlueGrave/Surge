@@ -14,6 +14,11 @@
 联通_获取 Cookie = type=http-request,pattern=^https?:\/\/m\.client\.10010\.com\/dailylottery\/static\/(integral|doubleball)\/firstpage,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/10010/unicom_signin.min.js
 贴吧_获取 Cookie = type=http-request,pattern=^https?:\/\/(c\.tieba\.baidu\.com|180\.97\.\d+\.\d+)\/c\/s\/login,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/tieba/tieba_checkin.js
 贴吧_获取新版 Cookie = type=http-request,pattern=^https?:\/\/c\.tieba\.baidu\.com\/c\/s\/channelIconConfig,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/tieba/tieba_checkin.js
+电信营业厅_获取 Cookie = type=http-request,pattern=^https:\/\/wapside.189.cn:9001\/api\/home\/sign,requires-body=1,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/10000/10000.cookie.js
+BiliBili_获取 Cookie = type=http-request,pattern=^https:\/\/(www|live)\.bilibili\.com\/?.?,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/bilibili/bilibili.cookie.js
+网易云音乐_获取 Cookie = type=http-request,pattern=^https:\/\/music.163.com\/weapi\/user\/level,requires-body=1,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/neteasemusic/quanx/neteasemusic.cookie.js
+喜马拉雅_获取 Cookie = type=http-request,pattern=^https?:\/\/.*\/mobile\-user\/homePage\/.*,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/ximalaya/ximalaya.cookie.js
+威锋网_获取 Cookie = type=http-request,pattern=^http:\/\/49.234.36.200:9091\/v1\/auth\/signin,requires-body=1,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/feng/feng.cookie.js
 
 [MITM]
-hostname = %APPEND% api.didialift.com,bosp-api.xiaojukeji.com,as.xiaojukeji.com,manhattan.webapp.xiaojukeji.com,pay.diditaxi.com.cn,*.video.qq.com,api.m.jd.com,ifac*.iqiyi.com,m.client.10010.com,c.tieba.baidu.com
+hostname = %APPEND% api.didialift.com,bosp-api.xiaojukeji.com,as.xiaojukeji.com,manhattan.webapp.xiaojukeji.com,pay.diditaxi.com.cn,*.video.qq.com,api.m.jd.com,ifac*.iqiyi.com,m.client.10010.com,c.tieba.baidu.com,wapside.189.cn:9001,*.bilibili.com,music.163.com,mobwsa.ximalaya.com,49.234.36.200:9091
