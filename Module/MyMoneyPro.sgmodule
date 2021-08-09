@@ -4,29 +4,8 @@
 
 [Rule]
 DOMAIN,sync.feidee.net,DIRECT
-DOMAIN,userapi.feidee.net,REJECT
-DOMAIN,data.feidee.net,REJECT
-DOMAIN,api.feidee.net,REJECT
-DOMAIN,kinglog.feidee.net,REJECT
-DOMAIN,oss.feidee.net,REJECT
-DOMAIN,ab.feidee.net,REJECT
-DOMAIN,invest.feidee.net,REJECT
-DOMAIN,pull.feidee.net,REJECT
-DOMAIN,yun.feidee.net,REJECT
-DOMAIN,message.feidee.com,REJECT
-DOMAIN,bbs.feidee.com,REJECT
-DOMAIN,bbsapi.feidee.com,REJECT
-DOMAIN,tg.feidee.com,REJECT
-DOMAIN,gate.feidee.com,REJECT
-DOMAIN,data.flurry.com,REJECT
-DOMAIN,weili.cardniu.com,REJECT
-DOMAIN-SUFFIX,ssjlicai.com,REJECT
-DOMAIN,m.sui.com,REJECT
-DOMAIN,sf3-ttcdn-tos.pstatp.com,REJECT
-DOMAIN,sf3-fe-tos.pglstatp-toutiao.com,REJECT
-DOMAIN,dm.bytedance.com,REJECT
-DOMAIN,idaa.shuzilm.cn,REJECT
-DOMAIN,qzs.qq.com,REJECT
-AND,((DOMAIN,app-measurement.com), (USER-AGENT,MyMoneyPro*)),REJECT
-AND,((DOMAIN,firebaselogging-pa.googleapis.com), (USER-AGENT,MyMoneyPro*)),REJECT
-AND,((DOMAIN,smr.snssdk.com), (USER-AGENT,MyMoneyPro*)),REJECT
+USER-AGENT,MyMoneyPro*,REJECT-DROP
+DOMAIN,api.feidee.net,REJECT-DROP
+DOMAIN,kinglog.feidee.net,REJECT-DROP
+DOMAIN,oss.feidee.net,REJECT-DROP
+DOMAIN,m.sui.com,REJECT-DROP
