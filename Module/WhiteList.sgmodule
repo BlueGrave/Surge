@@ -21,10 +21,8 @@ DOMAIN,tui.weibo.com,DIRECT
 # DOMAIN,ocsp.apple.com,REJECT
 # DOMAIN,ocsp.g.aaplimg.com,REJECT
 
-# Block UDP
-AND,((DOMAIN-SUFFIX,googlevideo.com), (PROTOCOL,UDP)),REJECT
-AND,((DOMAIN-SUFFIX,gvt1.com), (PROTOCOL,UDP)),REJECT
-AND,((DOMAIN-SUFFIX,cdninstagram.com), (PROTOCOL,UDP)),REJECT
+# Block HTTP3/QUIC
+AND,((PROTOCOL,UDP), (DEST-PORT,443)),REJECT-NO-DROP
 
 # 屏蔽勾正数据
 DOMAIN-SUFFIX,gz-data.com,REJECT
