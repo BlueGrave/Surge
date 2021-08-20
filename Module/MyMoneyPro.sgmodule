@@ -3,9 +3,9 @@
 #!system=ios
 
 [Rule]
-DOMAIN,sync.feidee.net,DIRECT
-USER-AGENT,MyMoneyPro*,REJECT-DROP
-DOMAIN,api.feidee.net,REJECT-DROP
-DOMAIN,kinglog.feidee.net,REJECT-DROP
-DOMAIN,oss.feidee.net,REJECT-DROP
-DOMAIN,m.sui.com,REJECT-DROP
+DOMAIN,sync.feidee.net,𝑫𝑰𝑹𝑬𝑪𝑻
+USER-AGENT,MyMoneyPro*,REJECT
+DOMAIN,api.feidee.net,REJECT
+DOMAIN,kinglog.feidee.net,REJECT
+DOMAIN,oss.feidee.net,REJECT
+DOMAIN,m.sui.com,REJECT
