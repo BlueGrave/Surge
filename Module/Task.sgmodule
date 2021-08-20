@@ -3,7 +3,6 @@
 #!system=ios
 
 [Script]
-京东汽车_兑换 = type=cron,cronexp=0 0 * * *,wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/panghu999/jd_scripts/master/jd_car_exchange.js
 滴滴出行_每日签到 = type=cron,cronexp=1 0 * * *,timeout=120,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/didichuxing/didi_checkin.js
 腾讯视频_每日签到 = type=cron,cronexp=30 1 0 * * *,timeout=120,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/videoqq/videoqq.js
 爱奇艺_每日签到 = type=cron,cronexp=2 0 * * *,timeout=120,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/iQIYI-DailyBonus/iQIYI.js
@@ -15,3 +14,4 @@ BiliBili_每日签到 = type=cron,cronexp=30 4 0 * * *,timeout=120,script-path=h
 网易云音乐_每日签到 = type=cron,cronexp=5 0 * * *,timeout=120,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/neteasemusic/neteasemusic.js
 喜马拉雅_每日签到 = type=cron,cronexp=30 5 0 * * *,timeout=120,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/ximalaya/ximalaya.js
 京东多合一_每日签到 = type=cron,cronexp=6 0 * * *,wake-system=1,timeout=120,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js
+Steam 日报 = type=cron,cronexp=0 9 * * *,timeout=120,script-path=https://raw.githubusercontent.com/Peng-YM/QuanX/master/Tasks/steam.js
