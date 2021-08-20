@@ -3,18 +3,18 @@
 
 [Rule]
 # 淘宝推广
-DOMAIN-SUFFIX,tce.alicdn.com,DIRECT
+DOMAIN-SUFFIX,tce.alicdn.com,𝑫𝑰𝑹𝑬𝑪𝑻
 
 # 罗技官网
-DOMAIN-SUFFIX,accounts.logi.com,DIRECT
-DOMAIN-SUFFIX,ghub.logitech.io,DIRECT
-DOMAIN,gm.mmstat.com,DIRECT
+DOMAIN-SUFFIX,accounts.logi.com,𝑫𝑰𝑹𝑬𝑪𝑻
+DOMAIN-SUFFIX,ghub.logitech.io,𝑫𝑰𝑹𝑬𝑪𝑻
+DOMAIN,gm.mmstat.com,𝑫𝑰𝑹𝑬𝑪𝑻
 
 # 115 网盘
-DOMAIN,passportapi.115.com,DIRECT
+DOMAIN,passportapi.115.com,𝑫𝑰𝑹𝑬𝑪𝑻
 
 # 微博推广
-DOMAIN,tui.weibo.com,DIRECT
+DOMAIN,tui.weibo.com,𝑫𝑰𝑹𝑬𝑪𝑻
 
 # 屏蔽 iOS 企业证书失效
 # DOMAIN,ocsp-lb.apple.com.akadns.net,REJECT
