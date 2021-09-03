@@ -17,7 +17,6 @@
 BiliBili_获取 Cookie = type=http-request,pattern=^https:\/\/(www|live)\.bilibili\.com\/?.?,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/bilibili/bilibili.cookie.js
 网易云音乐_获取 Cookie = type=http-request,pattern=^https:\/\/music.163.com\/weapi\/user\/level,requires-body=1,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/neteasemusic/quanx/neteasemusic.cookie.js
 喜马拉雅_获取 Cookie = type=http-request,pattern=^https?:\/\/mermaid.ximalaya.com\/config\/ts\/v2\/.*,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/ximalaya/ximalaya.cookie.js
-威锋网_获取 Cookie = type=http-request,pattern=^http:\/\/49.234.36.200:9091\/v1\/auth\/signin,requires-body=1,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/feng/feng.cookie.js
 
 [MITM]
-hostname = %APPEND% api.didialift.com,bosp-api.xiaojukeji.com,as.xiaojukeji.com,manhattan.webapp.xiaojukeji.com,pay.diditaxi.com.cn,*.video.qq.com,ms.jr.jd.com,me-api.jd.com,ifac*.iqiyi.com,m.client.10010.com,tieba.baidu.com,wapside.189.cn:9001,*.bilibili.com,music.163.com,mermaid.ximalaya.com,49.234.36.200:9091
+hostname = %APPEND% api.didialift.com,bosp-api.xiaojukeji.com,as.xiaojukeji.com,manhattan.webapp.xiaojukeji.com,pay.diditaxi.com.cn,*.video.qq.com,ms.jr.jd.com,me-api.jd.com,ifac*.iqiyi.com,m.client.10010.com,tieba.baidu.com,wapside.189.cn:9001,*.bilibili.com,music.163.com,mermaid.ximalaya.com
