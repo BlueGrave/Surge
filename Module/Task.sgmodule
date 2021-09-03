@@ -9,9 +9,8 @@
 百度贴吧_每日签到 = type=cron,cronexp=30 2 0 * * *,timeout=120,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/tieba/tieba.js
 联通营业厅_每日签到与抽奖 = type=cron,cronexp=3 0 * * *,timeout=120,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/10010/unicom_signin.min.js
 电信营业厅_每日签到 = type=cron,cronexp=30 3 0 * * *,timeout=120,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/10000/10000.js
-威锋网_每日签到 = type=cron,cronexp=4 0 * * *,timeout=120,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/feng/feng.js
+喜马拉雅_每日签到 = type=cron,cronexp=4 0 * * *,timeout=120,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/ximalaya/ximalaya.js
 BiliBili_每日签到 = type=cron,cronexp=30 4 0 * * *,timeout=120,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/bilibili/bilibili.js
 网易云音乐_每日签到 = type=cron,cronexp=5 0 * * *,timeout=120,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/neteasemusic/neteasemusic.js
-喜马拉雅_每日签到 = type=cron,cronexp=30 5 0 * * *,timeout=120,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/ximalaya/ximalaya.js
 京东多合一_每日签到 = type=cron,cronexp=6 0 * * *,wake-system=1,timeout=120,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js
 Steam 日报 = type=cron,cronexp=0 9 * * *,timeout=120,script-path=https://raw.githubusercontent.com/Peng-YM/QuanX/master/Tasks/steam.js
