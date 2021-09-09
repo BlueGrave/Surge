@@ -3,7 +3,7 @@
 #!system=ios
 
 [Rule]
-DOMAIN,sync.feidee.net,𝑫𝑰𝑹𝑬𝑪𝑻
+DOMAIN,sync.feidee.net,DIRECT
 USER-AGENT,MyMoneyPro*,REJECT
 DOMAIN,api.feidee.net,REJECT
 DOMAIN,kinglog.feidee.net,REJECT
