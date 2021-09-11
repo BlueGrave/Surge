@@ -20,4 +20,4 @@ BiliBili_获取 Cookie = type=http-request,pattern=^https:\/\/(www|live)\.bilibi
 威锋网_获取 Cookie = type=http-request,requires-body=1,pattern=^https?:\/\/api.wfdata.club\/v1\/auth\/signin,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/feng/feng.cookie.js
 
 [MITM]
-hostname = %APPEND% api.didialift.com,bosp-api.xiaojukeji.com,as.xiaojukeji.com,manhattan.webapp.xiaojukeji.com,pay.diditaxi.com.cn,*.video.qq.com,ms.jr.jd.com,me-api.jd.com,ifac*.iqiyi.com,m.client.10010.com,tieba.baidu.com,wapside.189.cn:9001,*.bilibili.com,music.163.com,mermaid.ximalaya.com,api.wfdata.club
+hostname = %APPEND% api.didialift.com, bosp-api.xiaojukeji.com, as.xiaojukeji.com, manhattan.webapp.xiaojukeji.com, pay.diditaxi.com.cn, *.video.qq.com, ms.jr.jd.com, me-api.jd.com, ifac*.iqiyi.com, m.client.10010.com, tieba.baidu.com, wapside.189.cn:9001, *.bilibili.com, music.163.com, mermaid.ximalaya.com, api.wfdata.club
