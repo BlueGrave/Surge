@@ -12,6 +12,5 @@
 喜马拉雅_每日签到 = type=cron,cronexp=4 0 * * *,timeout=120,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/ximalaya/ximalaya.js
 BiliBili_每日签到 = type=cron,cronexp=30 4 0 * * *,timeout=120,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/bilibili/bilibili.js
 网易云音乐_每日签到 = type=cron,cronexp=5 0 * * *,timeout=120,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/neteasemusic/neteasemusic.js
-威锋网_每日签到 = type=cron,cronexp=30 5 0 * * *,timeout=120,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/feng/feng.js
-京东多合一_每日签到 = type=cron,cronexp=6 0 * * *,wake-system=1,timeout=120,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js
+京东多合一_每日签到 = type=cron,cronexp=30 5 0 * * *,wake-system=1,timeout=120,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js
 // Steam 日报 = type=cron,cronexp=0 9 * * *,timeout=120,script-path=https://raw.githubusercontent.com/Peng-YM/QuanX/master/Tasks/steam.js
