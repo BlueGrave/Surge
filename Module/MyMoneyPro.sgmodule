@@ -4,6 +4,7 @@
 
 [Rule]
 DOMAIN,sync.feidee.net,DIRECT
+DOMAIN,auth.feidee.net,DIRECT
 USER-AGENT,MyMoneyPro*,REJECT
 DOMAIN,api.feidee.net,REJECT
 DOMAIN,kinglog.feidee.net,REJECT
