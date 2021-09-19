@@ -1,5 +1,5 @@
 #!name=WhiteList
-#!desc=排除 AdBlock 误伤和一些特殊规则
+#!desc=排除 AdBlock 误伤，增加一些自用的特殊规则
 
 [Rule]
 # 淘宝推广
