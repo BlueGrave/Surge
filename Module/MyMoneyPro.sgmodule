@@ -6,7 +6,5 @@
 DOMAIN,sync.feidee.net,DIRECT
 DOMAIN,auth.feidee.net,DIRECT
 USER-AGENT,MyMoneyPro*,REJECT
-DOMAIN,api.feidee.net,REJECT
-DOMAIN,kinglog.feidee.net,REJECT
-DOMAIN,oss.feidee.net,REJECT
-DOMAIN,m.sui.com,REJECT
+DOMAIN-SUFFIX,feidee.com,REJECT
+DOMAIN-SUFFIX,feidee.net,REJECT
