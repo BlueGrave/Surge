@@ -1,0 +1,9 @@
+# 解决 iOS Mail App 收件问题
+DOMAIN,imap.gmail.com
+DOMAIN,pop.gmail.com
+DOMAIN,smtp.gmail.com
+DOMAIN,m.hotmail.com
+DOMAIN,imap-mail.outlook.com
+DOMAIN,smtp-mail.outlook.com
+DOMAIN,outlook.office365.com
+DOMAIN,smtp.office365.com
