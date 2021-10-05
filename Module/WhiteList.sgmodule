@@ -28,7 +28,7 @@ AND,((PROTOCOL,UDP), (DEST-PORT,443)),REJECT-NO-DROP
 DOMAIN-SUFFIX,gz-data.com,REJECT
 
 # 解决直连下 Steam 无法显示通知
-DOMAIN,steamcommunity.com,DEFAULT
+DOMAIN,steamcommunity.com,Final
 
 # Other
 DOMAIN,log.mmstat.com,DIRECT
