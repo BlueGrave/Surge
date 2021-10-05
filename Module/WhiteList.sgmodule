@@ -26,3 +26,20 @@ AND,((PROTOCOL,UDP), (DEST-PORT,443)),REJECT-NO-DROP
 
 # 屏蔽勾正数据
 DOMAIN-SUFFIX,gz-data.com,REJECT
+
+# Other
+DOMAIN,log.mmstat.com,DIRECT
+DOMAIN,sycm.mmstat.com,DIRECT
+DOMAIN,msg.umeng.com,DIRECT
+DOMAIN,msg.umengcloud.com,DIRECT
+DOMAIN,analytics.95516.com,DIRECT
+DOMAIN,analytics.strava.com,DIRECT
+DOMAIN,app.adjust.com,DIRECT
+DOMAIN,bdtj.tagtic.cn,DIRECT
+DOMAIN,fairplay.l.qq.com,DIRECT
+DOMAIN,origin-a.akamaihd.net,DIRECT
+DOMAIN,pubads.g.doubleclick.net,DIRECT
+DOMAIN-SUFFIX,dizhensubao.getui.com,DIRECT
+DOMAIN-SUFFIX,f.video.weibocdn.com,DIRECT
+DOMAIN-SUFFIX,fus.cdn.krcom.cn,DIRECT
+DOMAIN-SUFFIX,tracking-protection.cdn.mozilla.net,DIRECT
