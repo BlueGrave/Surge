@@ -2,8 +2,16 @@
 #!desc=排除 AdBlock 误伤，增加一些自用的特殊规则
 
 [Rule]
+# General
+DOMAIN,app.adjust.com,DIRECT
+DOMAIN,bdtj.tagtic.cn,DIRECT
+
 # 淘宝推广
 DOMAIN-SUFFIX,tce.alicdn.com,DIRECT
+
+# Alibaba
+DOMAIN,log.mmstat.com,DIRECT
+DOMAIN,sycm.mmstat.com,DIRECT
 
 # 罗技官网
 DOMAIN-SUFFIX,accounts.logi.com,DIRECT
@@ -15,6 +23,42 @@ DOMAIN,passportapi.115.com,DIRECT
 
 # 微博推广
 DOMAIN,tui.weibo.com,DIRECT
+
+# Weibo
+DOMAIN-SUFFIX,f.video.weibocdn.com,DIRECT
+
+# Getui
+DOMAIN-SUFFIX,dizhensubao.getui.com,DIRECT
+
+# Mozilla
+DOMAIN-SUFFIX,tracking-protection.cdn.mozilla.net,DIRECT
+
+# Origin
+DOMAIN,origin-a.akamaihd.net,DIRECT
+
+# Strava
+DOMAIN,analytics.strava.com,DIRECT
+
+# Umeng 友盟+
+DOMAIN,msg.umeng.com,DIRECT
+DOMAIN,msg.umengcloud.com,DIRECT
+
+# Tencent
+DOMAIN,fairplay.l.qq.com,DIRECT
+DOMAIN,livew.l.qq.com,DIRECT
+DOMAIN,vd.l.qq.com,DIRECT
+
+# UnionPay
+DOMAIN,analytics.95516.com,DIRECT
+
+# MIUI
+DOMAIN,tracking.miui.com,DIRECT
+
+# Paramount+
+DOMAIN,pubads.g.doubleclick.net,DIRECT
+
+# Krcom 酷燃视频
+DOMAIN-SUFFIX,fus.cdn.krcom.cn,DIRECT
 
 # 屏蔽 iOS 企业证书失效
 # DOMAIN,ocsp-lb.apple.com.akadns.net,REJECT
@@ -29,20 +73,3 @@ DOMAIN-SUFFIX,gz-data.com,REJECT
 
 # 解决直连下 Steam 无法显示通知
 DOMAIN,steamcommunity.com,DEFAULT
-
-# Other
-DOMAIN,log.mmstat.com,DIRECT
-DOMAIN,sycm.mmstat.com,DIRECT
-DOMAIN,msg.umeng.com,DIRECT
-DOMAIN,msg.umengcloud.com,DIRECT
-DOMAIN,analytics.95516.com,DIRECT
-DOMAIN,analytics.strava.com,DIRECT
-DOMAIN,app.adjust.com,DIRECT
-DOMAIN,bdtj.tagtic.cn,DIRECT
-DOMAIN,fairplay.l.qq.com,DIRECT
-DOMAIN,origin-a.akamaihd.net,DIRECT
-DOMAIN,pubads.g.doubleclick.net,DIRECT
-DOMAIN-SUFFIX,dizhensubao.getui.com,DIRECT
-DOMAIN-SUFFIX,f.video.weibocdn.com,DIRECT
-DOMAIN-SUFFIX,fus.cdn.krcom.cn,DIRECT
-DOMAIN-SUFFIX,tracking-protection.cdn.mozilla.net,DIRECT
