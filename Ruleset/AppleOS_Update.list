@@ -1,4 +1,5 @@
 # 屏蔽 AppleOS 更新
+
 # 屏蔽 iOS/iPadOS 企业证书失效
 DOMAIN-SUFFIX,ocsp-lb.apple.com.akadns.net
 DOMAIN-SUFFIX,ocsp.apple.com
