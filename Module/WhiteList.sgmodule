@@ -35,6 +35,8 @@ DOMAIN-SUFFIX,tracking-protection.cdn.mozilla.net,DIRECT
 
 # Origin
 DOMAIN,origin-a.akamaihd.net,DIRECT
+DOMAIN,xivanalysis.com
+DOMAIN,picanalysis.vivo.com.cn
 
 # Strava
 DOMAIN,analytics.strava.com,DIRECT
