@@ -9,6 +9,8 @@
  * @author: Peng-YM
  * @github: https://github.com/Peng-YM/Sub-Store
  * @documentation: https://www.notion.so/Sub-Store-6259586994d34c11a4ced5c406264b46
+ * 自用，修改自高级订阅管理工具 @Peng-YM
+ * 修改了对 Trojan 类型 URL 的转换，读取 sni 改成 读取 peer
  */
 const $ = API("sub-store");
 const Base64 = new Base64Code();
