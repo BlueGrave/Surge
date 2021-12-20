@@ -1397,7 +1397,7 @@ var ProxyUtils = (function () {
                         return item.split("=")
                     }))
                     sni = params.get("sni")
-                    if (sni == null) {
+                    if (sni === null) {
                         sni = params.get("peer")
                     }
                 }
