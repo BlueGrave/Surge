@@ -6,7 +6,6 @@
 
 ### 规则文件
 自用的特殊规则
-- [Emby.list](https://github.com/BlueGrave/Surge/blob/master/Ruleset/Emby.list) 自己整理的各个 Emby 规则
 - [AppleOS_Update.list](https://github.com/BlueGrave/Surge/blob/master/Ruleset/AppleOS_Update.list) 结合多个大佬的相关规则整理出来的各 Apple OS OTA 规则
 - [Mail.list](https://github.com/BlueGrave/Surge/blob/master/Ruleset/Mail.list) 解决 iOS Mail App 收件问题
 
