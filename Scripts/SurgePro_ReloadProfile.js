@@ -7,7 +7,7 @@ let dateNow = new Date()
 let dateTime = Math.floor(traffic.startTime*1000)
 let startTime = timeTransform(dateNow,dateTime)
 
-// if ($trigger == "button") await httpAPI("/v1/profiles/reload");
+//if ($trigger == "button") await httpAPI("/v1/profiles/reload");
 /*
 if ($trigger == "button") 
   $httpAPI("POST", "/v1/profiles/reload", {}, data => {
@@ -31,14 +31,20 @@ if ($trigger == "button")
 
 function timeTransform(dateNow,dateTime) {
 let dateDiff = dateNow - dateTime;
-let days = Math.floor(dateDiff / (24 * 3600 * 1000));//计算出相差天数
-let leave1=dateDiff%(24*3600*1000)    //计算天数后剩余的毫秒数
-let hours=Math.floor(leave1/(3600*1000))//计算出小时数
+//计算出相差天数
+let days = Math.floor(dateDiff / (24 * 3600 * 1000));
+//计算天数后剩余的毫秒数
+let leave1=dateDiff%(24*3600*1000)
+//计算出小时数
+let hours=Math.floor(leave1/(3600*1000))
 //计算相差分钟数
-let leave2=leave1%(3600*1000)    //计算小时数后剩余的毫秒数
-let minutes=Math.floor(leave2/(60*1000))//计算相差分钟数
+//计算小时数后剩余的毫秒数
+let leave2=leave1%(3600*1000)
+//计算相差分钟数
+let minutes=Math.floor(leave2/(60*1000))
 //计算相差秒数
-let leave3=leave2%(60*1000)      //计算分钟数后剩余的毫秒数
+//计算分钟数后剩余的毫秒数
+let leave3=leave2%(60*1000)
 let seconds=Math.round(leave3/1000)
 
 if(days==0){
