@@ -1,4 +1,4 @@
-var list = ["上海","杭州","绍兴","宁波","江苏","西安","内蒙古","黑龙江","广东"];
+var list = ["中国","上海","杭州","绍兴","宁波"];
 const url = "https://view.inews.qq.com/g2/getOnsInfo?name=disease_h5";
 var ala="";
 function nowtime(){
@@ -27,7 +27,7 @@ $httpClient.get(url, function(error, response, data){
     num(list[i], res);
     if (i == list.length - 1) {
      $done({
-       title: "疫情查询：新增 | 现存"+ "   "+nowtime(),
+       title: "当前疫情：新增 | 现存"+ "   "+nowtime(),
        icon:"filemenu.and.cursorarrow",
        "icon-color":"#0089A7",
        content: ala.replace(/\n$/, "")
