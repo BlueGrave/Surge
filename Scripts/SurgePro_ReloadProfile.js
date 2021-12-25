@@ -8,6 +8,7 @@ let dateTime = Math.floor(traffic.startTime*1000)
 let startTime = timeTransform(dateNow,dateTime)
 
 // if ($trigger == "button") await httpAPI("/v1/profiles/reload");
+/*
 if ($trigger == "button") 
   $httpAPI("POST", "/v1/profiles/reload", {}, data => {
     $notification.post("配置重载","配置重载成功","")
@@ -19,7 +20,13 @@ if ($trigger == "button")
 		icon: params.icon,
 		"icon-color":params.color
     });
-
+*/
+  $done({
+    title:"Surge Pro",
+    content:`启动时长: ${startTime}`,
+    icon: params.icon,
+    "icon-color":params.color
+    });
 })();
 
 function timeTransform(dateNow,dateTime) {
