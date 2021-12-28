@@ -1,0 +1,50 @@
+#!name= Unlock iCloud Private Relay
+#!desc=(BETA) 启用iCloud专用代理，需要Surge 共享网络连接/启用网关模式 给下级设备
+
+# https://raw.githubusercontent.com/VirgilClyne/iRingo/226ae6e5c0fc1eee2c53ae69b2e27589be22bee7/sgmodule/Apple_iCloud_Private_Relay_for_DivineEngine.beta.sgmodule
+
+[General]
+# > 路由防火墙
+# 包含所有的网络请求
+include-all-networks = true
+
+[Rule]
+# > REJECT AutoNavi Location Services Dispatcher
+DOMAIN,dispatcher.is.autonavi.com,REJECT
+
+# > Apple
+AND,((PROTOCOL,UDP),(DEST-PORT,443),(IP-CIDR,17.0.0.0/8,no-resolve)),DIRECT
+AND,((PROTOCOL,TCP),(DEST-PORT,443),(IP-CIDR,17.0.0.0/8,no-resolve)),DEFAULT
+
+# > iCloud 
+DOMAIN,gateway.icloud.com,DEFAULT
+DOMAIN,metrics.icloud.com,DEFAULT
+# DOMAIN,p102-quota.icloud.com,DEFAULT
+# iCloud services in China
+DOMAIN-SUFFIX,apzones.com,DIRECT
+DOMAIN-SUFFIX,icloud.com.cn,DIRECT
+# iCloud services
+DOMAIN-SUFFIX,icloud-content.com,DEFAULT
+DOMAIN-KEYWORD,content.icloud.com,DEFAULT
+
+# > Apple Content caching
+# https://support.apple.com/en-us/HT210060
+IP-CIDR,17.57.21.63/32,DEFAULT
+# Server registration
+DOMAIN,lcdn-registration.apple.com,DEFAULT
+# Content caching locator service
+DOMAIN,lcdn-locator.apple.com,DEFAULT
+
+# > iCloud Private Relay
+# https://developer.apple.com/cn/support/prepare-your-network-for-icloud-private-relay/
+# https://mask-api.icloud.com/egress-ip-ranges.csv
+
+# Optimize for Private Relay connections
+AND,((PROTOCOL,UDP),(DEST-PORT,443),(DOMAIN,mask-api.icloud.com)),DIRECT
+AND,((PROTOCOL,UDP),(DEST-PORT,443),(DOMAIN,mask.icloud.com)),DIRECT
+AND,((PROTOCOL,UDP),(DEST-PORT,443),(DOMAIN,mask-h2.icloud.com)),DIRECT
+
+# Allow for network traffic audits
+AND,((PROTOCOL,TCP),(DEST-PORT,443),(DOMAIN,mask-api.icloud.com)),DEFAULT
+AND,((PROTOCOL,TCP),(DEST-PORT,443),(DOMAIN,mask.icloud.com)),DEFAULT
+AND,((PROTOCOL,TCP),(DEST-PORT,443),(DOMAIN,mask-h2.icloud.com)),DEFAULT
