@@ -2,7 +2,7 @@
 自用的 Surge 规则、脚本和模块
 
 ### 通用配置文件
-[General.conf](https://github.com/BlueGrave/Surge/blob/master/General.conf) 参考 [@scomper/Surge](https://github.com/scomper/Surge) 和 [@DivineEngine/Profiles/Surge](https://github.com/DivineEngine/Profiles/tree/master/Surge) 的配置文件注释
+[General.conf](https://github.com/BlueGrave/Surge/blob/master/General.conf) 参考 [@scomper](https://github.com/scomper/Surge) 和 [@DivineEngine](https://github.com/DivineEngine/Profiles/tree/master/Surge) 的配置文件注释
 
 ### 规则文件
 自用的特殊规则
