@@ -63,10 +63,15 @@ DOMAIN,pubads.g.doubleclick.net,DIRECT
 DOMAIN-SUFFIX,fus.cdn.krcom.cn,DIRECT
 
 # 屏蔽 HTTP3/QUIC
-AND,((PROTOCOL,UDP), (DEST-PORT,443)),REJECT-NO-DROP
+# AND,((PROTOCOL,UDP), (DEST-PORT,443)),REJECT-NO-DROP
 
 # 屏蔽 YouTube 的 UDP
-# AND,((PROTOCOL,UDP),(DOMAIN-SUFFIX,googlevideo.com)),REJECT-NO-DROP
+# AND,((RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/YouTube/YouTube.list),(PROTOCOL,UDP)),REJECT-NO-DROP
+AND,((PROTOCOL,UDP),(DOMAIN-SUFFIX,googlevideo.com)),REJECT-NO-DROP
+
+AND,((PROTOCOL,UDP),(OR,((DOMAIN-KEYWORD,bilibili),(DOMAIN-KEYWORD,biliapi),(DOMAIN-KEYWORD,mcdn),(DOMAIN-KEYWORD,douyu)))),REJECT-NO-DROP
+
+AND,((PROTOCOL,TCP),(OR,((DOMAIN-KEYWORD,stun),(DOMAIN-KEYWORD,douyu)))),REJECT-NO-DROP
 
 # 屏蔽勾正数据
 DOMAIN-SUFFIX,gz-data.com,REJECT
