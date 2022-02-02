@@ -75,6 +75,3 @@ AND,((PROTOCOL,TCP),(OR,((DOMAIN-KEYWORD,stun),(DOMAIN-KEYWORD,douyu)))),REJECT-
 
 # 屏蔽勾正数据
 DOMAIN-SUFFIX,gz-data.com,REJECT
-
-# 解决直连下 Steam 无法显示通知
-DOMAIN,steamcommunity.com,DEFAULT
