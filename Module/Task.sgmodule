@@ -8,7 +8,6 @@
 BiliBili_每日签到 = type=cron,cronexp=30 1 0 * * *,timeout=120,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/bilibili/bilibili.js
 爱奇艺_每日签到 = type=cron,cronexp=2 0 * * *,timeout=120,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/iQIYI-DailyBonus/iQIYI.js
 百度贴吧_每日签到 = type=cron,cronexp=30 2 0 * * *,timeout=120,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/tieba/tieba.js
-喜马拉雅_每日签到 = type=cron,cronexp=3 0 * * *,timeout=120,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/ximalaya/ximalaya.js
-电信营业厅_每日签到 = type=cron,cronexp=30 3 0 * * *,timeout=120,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/10000/10000.js
+电信营业厅_每日签到 = type=cron,cronexp=3 0 * * *,timeout=120,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/10000/10000.js
 京东多合一_每日签到 = type=cron,cronexp=4 0 * * *,wake-system=1,timeout=120,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js
 // Steam 日报 = type=cron,cronexp=0 9 * * *,timeout=120,script-path=https://raw.githubusercontent.com/Peng-YM/QuanX/master/Tasks/steam.js
