@@ -1,20 +1,21 @@
-#!name=Cookie
+#!name=02 Cookie
 #!desc=Get Cookie
 #!system=ios
 
+[Rule]
+DOMAIN,gslbali.ximalaya.com,REJECT
+DOMAIN,gslbtx.ximalaya.com,REJECT
+
 [Script]
-# 爱奇艺 获取 Cookie
-# Safari浏览器网页登录 https://m.iqiyi.com/user.html 如通知成功获取cookie则可使用该脚本.
-爱奇艺_获取 Cookie = type=http-request,pattern=^https:\/\/passport\.iqiyi\.com\/apis\/profile\/info\.action,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/iQIYI-DailyBonus/iQIYI.js
+# 喜马拉雅签到
+# 后台退出手机喜马拉雅客户端的情况下,重新打开APP进入主页
+喜马拉雅 Cookie = type=http-request,pattern=^https?:\/\/(mobile|mobilehera|mobwsa)\.ximalaya\.com\/app-skin-service\/skin\/,script-path=https://raw.githubusercontent.com/ClydeTime/Surge/main/Script/Task/xmly.js,requires-body=0
 # 百度贴吧 获取 Cookie
 # 先登录，浏览器访问一下: https://tieba.baidu.com 或者 https://tieba.baidu.com/index/
 百度贴吧_获取 Cookie = type=http-request,pattern=^https?:\/\/tieba\.baidu\.com\/?.?,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/tieba/tieba.cookie.js
-# 京东 获取 Cookie (by @NobyDa)
-# Safari浏览器打开登录 https://home.m.jd.com/myJd/newhome.action 点击”我的“页面；或者使用旧版网址 https://bean.m.jd.com/bean/signIndex.action 点击签到并且出现签到日历。如果通知获取Cookie成功, 则可以使用此签到脚本. 注: 请勿在京东APP内获取!!!
-京东_获取 Cookie = type=http-request,requires-body=1,pattern=^https:\/\/(api\.m|me-api|ms\.jr)\.jd\.com\/(client\.action\?functionId=signBean|user_new\/info\/GetJDUserInfoUnion\?|gw\/generic\/hy\/h5\/m\/appSign\?),script-path=https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js
 # 阿里云盘签到
 # https://auth.aliyundrive.com/v2/account/token
 阿里云盘签到 Cookie = requires-body=1,type=http-response,pattern=https:\/\/auth.aliyundrive.com\/v2\/account\/token,script-path=https://raw.githubusercontent.com/lowking/Scripts/master/ali/aliYunPanCheckIn.js
 
 [MITM]
-hostname = %APPEND% passport.iqiyi.com, tieba.baidu.com, ms.jr.jd.com, me-api.jd.com, auth.aliyundrive.com
+hostname = %APPEND% mobile.ximalaya.com, mobwsa.ximalaya.com, mobilehera.ximalaya.com, tieba.baidu.com, auth.aliyundrive.com
