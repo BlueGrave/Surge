@@ -1,12 +1,11 @@
-#!name=Task
+#!name=03 Task
 #!desc=Task Crontab
 #!system=ios
 
 [Script]
-爱奇艺_每日签到 = type=cron,cronexp=1 0 * * *,timeout=120,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/iQIYI-DailyBonus/iQIYI.js
-百度贴吧_每日签到 = type=cron,cronexp=30 1 0 * * *,timeout=120,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/tieba/tieba.js
-京东多合一_每日签到 = type=cron,cronexp=2 0 * * *,wake-system=1,timeout=120,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js
-威锋_每日签到 = type=cron,cronexp=30 2 0 * * *,wake-system=1,timeout=15,script-path=https://raw.githubusercontent.com/githubdulong/Script/master/weifeng.js
-阿里云盘签到 = type=cron,cronexp="3 0 * * ?",wake-system=1,script-path=https://raw.githubusercontent.com/lowking/Scripts/master/ali/aliYunPanCheckIn.js
+喜马拉雅签到任务 = type=cron,cronexp=30 0 0 * * *,script-path=https://raw.githubusercontent.com/ClydeTime/Surge/main/Script/Task/xmly.js,timeout=15,wake-system=1
+百度贴吧_每日签到 = type=cron,cronexp=1 0 * * *,timeout=120,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/tieba/tieba.js
+威锋_每日签到 = type=cron,cronexp=30 1 0 * * *,wake-system=1,timeout=15,script-path=https://raw.githubusercontent.com/githubdulong/Script/master/weifeng.js
+阿里云盘签到 = type=cron,cronexp=”2 0 * * ?“,wake-system=1,script-path=https://raw.githubusercontent.com/lowking/Scripts/master/ali/aliYunPanCheckIn.js
 // Steam 日报 = type=cron,cronexp=0 9 * * *,timeout=120,script-path=https://raw.githubusercontent.com/Peng-YM/QuanX/master/Tasks/steam.js
 // Sub-Store AutoSync = type=cron,cronexp=0 0/6 * * *,wake-system=1,timeout=120,script-path=https://github.com/sub-store-org/Sub-Store/releases/latest/download/cron-sync-artifacts.min.js
