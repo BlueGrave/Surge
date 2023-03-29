@@ -1,4 +1,5 @@
 # 解决 iOS Mail App 收件问题
+
 DOMAIN,imap.gmail.com
 DOMAIN,pop.gmail.com
 DOMAIN,smtp.gmail.com
