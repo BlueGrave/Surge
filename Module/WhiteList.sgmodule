@@ -2,64 +2,116 @@
 #!desc=排除 AdBlock 误伤，增加一些自用的特殊规则
 
 [Rule]
-# General
+# > General
 DOMAIN,app.adjust.com,DIRECT
 DOMAIN,bdtj.tagtic.cn,DIRECT
-# 淘宝推广
+# > 淘宝推广
 DOMAIN-SUFFIX,tce.alicdn.com,DIRECT
-# Alibaba
+# > Alibaba
 DOMAIN,log.mmstat.com,DIRECT
 DOMAIN,sycm.mmstat.com,DIRECT
-# 罗技官网
+# > 罗技官网
 DOMAIN-SUFFIX,accounts.logi.com,DIRECT
 DOMAIN-SUFFIX,ghub.logitech.io,DIRECT
 DOMAIN,gm.mmstat.com,DIRECT
-# 115 网盘
+# > 115 网盘
 DOMAIN,passportapi.115.com,DIRECT
-# 微博推广
+# > 微博推广
 DOMAIN,tui.weibo.com,DIRECT
-# Weibo
+# > Weibo
 DOMAIN-SUFFIX,f.video.weibocdn.com,DIRECT
-# Getui
+# > Getui
 DOMAIN-SUFFIX,dizhensubao.getui.com,DIRECT
-# Mozilla
+# > Mozilla
 DOMAIN-SUFFIX,tracking-protection.cdn.mozilla.net,DIRECT
-# Origin
+# > Origin
 DOMAIN,origin-a.akamaihd.net,DIRECT
 DOMAIN,xivanalysis.com,DIRECT
 DOMAIN,picanalysis.vivo.com.cn,DIRECT
-# Strava
+# > Strava
 DOMAIN,analytics.strava.com,DIRECT
-# Umeng 友盟+
+# > Umeng 友盟+
 DOMAIN,msg.umeng.com,DIRECT
 DOMAIN,msg.umengcloud.com,DIRECT
-# Tencent
+# > Tencent
 DOMAIN,fairplay.l.qq.com,DIRECT
 DOMAIN,livew.l.qq.com,DIRECT
 DOMAIN,vd.l.qq.com,DIRECT
-# UnionPay
+# > UnionPay
 DOMAIN,analytics.95516.com,DIRECT
-# MIUI
+# > MIUI
 DOMAIN,tracking.miui.com,DIRECT
-# Paramount+
+# > Paramount+
 DOMAIN,pubads.g.doubleclick.net,DIRECT
-# Krcom 酷燃视频
+# > Krcom 酷燃视频
 DOMAIN-SUFFIX,fus.cdn.krcom.cn,DIRECT
-# RT-AX86U
+# > RT-AX86U
 DOMAIN,router.asus.com,DIRECT
-# 应对 edu.cn IPv6 网站
+# > 应对 edu.cn IPv6 网站
 DOMAIN-SUFFIX,edu.cn,DIRECT
 
-# 部分服务会校验请求的来源 IP，在开启 hybrid 时有可能因为请求IP变化导致无法正常登录和使用（如招商银行），可使用 NO-HYBRID 对特定请求单独关闭 All Hybrid
+# > 部分服务会校验请求的来源 IP，在开启 hybrid 时有可能因为请求IP变化导致无法正常登录和使用（如招商银行），可使用 NO-HYBRID 对特定请求单独关闭 All Hybrid
 DOMAIN-SUFFIX,cmbchina.com,NO-HYBRID
 
-# Block HTTP3/QUIC
+# > Block HTTP3/QUIC
 # AND,((PROTOCOL,UDP), (DEST-PORT,443)),REJECT-NO-DROP
-# 屏蔽 YouTube 的 UDP
+# > 屏蔽 YouTube 的 UDP
 # AND,((RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/YouTube/YouTube.list),(PROTOCOL,UDP)),REJECT-NO-DROP
 AND,((PROTOCOL,UDP),(OR,((DOMAIN-SUFFIX,googlevideo.com),(DOMAIN-SUFFIX,gvt1.com),(DOMAIN-SUFFIX,cdninstagram.com)))),REJECT-NO-DROP
-# Block P2P
+# > Block P2P
 AND,((PROTOCOL,UDP),(OR,((DOMAIN-KEYWORD,bilibili),(DOMAIN-KEYWORD,biliapi),(DOMAIN-KEYWORD,mcdn),(DOMAIN-KEYWORD,douyu)))),REJECT-NO-DROP
 AND,((PROTOCOL,TCP),(OR,((DOMAIN-KEYWORD,stun),(DOMAIN-KEYWORD,douyu)))),REJECT-NO-DROP
-# 屏蔽勾正数据
+# > 屏蔽勾正数据
 DOMAIN-SUFFIX,gz-data.com,REJECT
+
+# > 随手记专业版去广告
+DOMAIN,sync.feidee.net,DIRECT
+DOMAIN,auth.feidee.net,DIRECT
+USER-AGENT,MyMoneyPro*,REJECT
+DOMAIN-SUFFIX,feidee.com,REJECT
+DOMAIN-SUFFIX,feidee.net,REJECT
+# > 滴滴出行 去广告
+//01 安全提示横幅
+URL-REGEX,^https:\/\/guard\.sec\.xiaojukeji\.com\/api\/guard\/psg\/v2\/getShieldStatus,REJECT
+//02 底部打车&代价推荐
+URL-REGEX,^https:\/\/conf\.diditaxi\.com\.cn\/one,REJECT
+//03 福利专区-金融服务-公交-骑车-滴滴乐园
+URL-REGEX,^https:\/\/conf\.diditaxi\.com\.cn\/nav\/widget,REJECT
+//04 接送机-优惠商城
+URL-REGEX,^https:\/\/api\.udache\.com\/gulfstream,REJECT
+//05 主页 领任务
+URL-REGEX,^https:\/\/conf\.diditaxi\.com\.cn\/api\/(component|fusion|dynamicmodule|usercenter),REJECT
+URL-REGEX,^https:\/\/conf\.diditaxi\.com\.cn\/dynamic,REJECT
+//06 主页 非主流式悬浮挂件
+URL-REGEX,^https:\/\/res\.xiaojukeji\.com\/resapi\/activity\/mget,REJECT
+//07 商城
+URL-REGEX,^https:\/\/shop-gw\.chengxinyouxuan\.com\/(route|indexConfig|apolloConfig|getShopTuanInfos),REJECT
+//08 开屏广告
+URL-REGEX,^https:\/\/img-ys011\.didistatic\.com\/static,REJECT
+//09 骑行
+URL-REGEX,^https:\/\/pt-starimg\.didistatic\.com\/static,REJECT
+# > 中国联通 去开屏
+DOMAIN-SUFFIX,m1.ad.10010.com,REJECT
+# > 中国电信 去开屏
+DOMAIN,ad.21cn.com,REJECT
+DOMAIN,ad.k.21cn.com,REJECT
+DOMAIN,admarket.21cn.com,REJECT
+DOMAIN,adshows.21cn.com,REJECT
+# > 顺丰速运 去开屏
+URL-REGEX,^https?:\/\/ccsp-egmas\.sf-express\.com\/cx-app-base\/base\/app\/appVersion\/detectionUpgrade,REJECT
+URL-REGEX,^https?:\/\/ccsp-egmas\.sf-express\.com\/cx-app-base\/base\/app\/ad\/,REJECT
+URL-REGEX,^https?:\/\/shopic\.sf-express\.com\/crm\/mobile\/common\/flashscreen,REJECT
+# > 拼多多 去开屏
+URL-REGEX,^https?:\/\/api\.(pinduoduo|yangkeduo)\.com\/api\/cappuccino\/splash,REJECT
+# > 美团 去广告
+DOMAIN,portal-portm.meituan.com,REJECT
+URL-REGEX,^https?:\/\/img\.meituan\.net\/(bizad|brandCpt)\/\w+\.(png|jpg),REJECT
+URL-REGEX,^https?:\/\/peisongapi\.meituan\.com\/client\/getInitiateImage,REJECT-TINYGIF
+URL-REGEX,^https?:\/\/img\.meituan\.net\/(adunion|display|midas)\/\w+\.(gif|jpg|jpg\.webp)$,REJECT
+URL-REGEX,^https?:\/\/(s3plus|flowplus)\.meituan\.net\/v\d\/\w+\/linglong\/\w+\.(gif|jpg|mp4),REJECT
+URL-REGEX,^https?:\/\/p\d\.meituan\.net\/(bizad|wmbanner)\/\w+\.jpg,REJECT
+URL-REGEX,^https?:\/\/p\d\.meituan\.net\/movie\/\w+\.jpg\?may_covertWebp,REJECT
+# > 威锋 去广告
+URL-REGEX,^https:\/\/api\.wfdata\.club\/v2\/yesfeng\/(infoCenterAd|yesList),REJECT
+# > 作业帮 去广告
+URL-REGEX,^https:\/\/syh\.zybang\.com\/com\/adx\/impress$,REJECT-TINYGIF
