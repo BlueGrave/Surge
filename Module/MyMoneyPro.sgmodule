@@ -1,6 +1,9 @@
 #!name=随手记去广告
 #!desc=随手记去开屏、首页、社区和推广等广告
 #!author=@ddgksf2013
+#!version=V1.0.5
+#!updatetime=2023-03-15
+#!scripturl=https://github.com/ddgksf2013/Rewrite/raw/master/AdBlock/SuiShouJi.conf
 
 [URL Rewrite]
 # > 随手记_开屏广告
