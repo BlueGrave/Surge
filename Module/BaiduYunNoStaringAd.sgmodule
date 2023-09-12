@@ -3,26 +3,26 @@
 #!author=RuCu6
 
 [URL Rewrite]
-URL-REGEX,^https:\/\/pan\.baidu\.com\/(act\/api\/activityentry|rest\/2\.0\/pcs\/adx)\?,REJECT
-URL-REGEX,^https?:\/\/update\.pan\.baidu\.com\/statistics\?,REJECT
-URL-REGEX,
-URL-REGEX,^https:\/\/pan\.baidu\.com\/pmall\/order\/privilege\/info,REJECT
-URL-REGEX,^https:\/\/pan\.baidu\.com\/rest\/.+\/pcs\/adx,REJECT
-URL-REGEX,^https:\/\/pan\.baidu\.com\/api\/useractivity\/activity,REJECT
-URL-REGEX,^http:\/\/pan\.baidu\.com\/act\/.+\/bchannel\/list,REJECT
-# URL-REGEX,^https:\/\/pan\.baidu\.com\/api\/certuser\/get,REJECT
-URL-REGEX,^https:\/\/pan\.baidu\.com\/component\/view\/1510\?from,REJECT
-URL-REGEX,^https:\/\/sofire\.baidu\.com\/ios\/.+,REJECT
-URL-REGEX,^https:\/\/ndstatic\.cdn\.bcebos\.com\/activity\/welfare\/js\/.+\.js,REJECT
-URL-REGEX,^https:\/\/ndstatic\.cdn\.bcebos\.com\/activity\/welfare\/index\.html,REJECT
-URL-REGEX,^https:\/\/pan\.baidu\.com\/pmall\/order\/privilege\/info,REJECT
-URL-REGEX,^https:\/\/staticsns\.cdn\.bcebos\.com\/amis\/.+/banner.png,REJECT
-URL-REGEX,^http:\/\/rp\.hpplay\.cn\/logouts,REJECT
-# URL-REGEX,^https:\/\/issuecdn\.baidupcs\.com\/issue\/netdisk\/ts_ad\/guanggao\/.+,REJECT
-URL-REGEX,https:\/\/issuecdn\.baidupcs\.com\/issue\/netdisk\/ts_ad\/,REJECT
-URL-REGEX,https:\/\/pan\.baidu\.com\/rest\/2.0\/pcs\/adv\?,REJECT
-# URL-REGEX,https://pan\.baidu\.com\/act\/api\/activityentry\?,REJECT
-URL-REGEX,https:\/\/pan\.baidu\.com\/component\/view\/(1510|1130)\?vip,REJECT
+^https:\/\/pan\.baidu\.com\/(act\/api\/activityentry|rest\/2\.0\/pcs\/adx)\? - reject
+^https?:\/\/update\.pan\.baidu\.com\/statistics\? - reject
+
+^https:\/\/pan\.baidu\.com\/pmall\/order\/privilege\/info - reject
+^https:\/\/pan\.baidu\.com\/rest\/.+\/pcs\/adx - reject
+^https:\/\/pan\.baidu\.com\/api\/useractivity\/activity - reject
+^http:\/\/pan\.baidu\.com\/act\/.+\/bchannel\/list - reject
+# ^https:\/\/pan\.baidu\.com\/api\/certuser\/get - reject
+^https:\/\/pan\.baidu\.com\/component\/view\/1510\?from - reject
+^https:\/\/sofire\.baidu\.com\/ios\/.+ - reject
+^https:\/\/ndstatic\.cdn\.bcebos\.com\/activity\/welfare\/js\/.+\.js - reject
+^https:\/\/ndstatic\.cdn\.bcebos\.com\/activity\/welfare\/index\.html - reject
+^https:\/\/pan\.baidu\.com\/pmall\/order\/privilege\/info - reject
+^https:\/\/staticsns\.cdn\.bcebos\.com\/amis\/.+/banner.png - reject
+^http:\/\/rp\.hpplay\.cn\/logouts - reject
+# ^https:\/\/issuecdn\.baidupcs\.com\/issue\/netdisk\/ts_ad\/guanggao\/.+ - reject
+https:\/\/issuecdn\.baidupcs\.com\/issue\/netdisk\/ts_ad\/ - reject
+https:\/\/pan\.baidu\.com\/rest\/2.0\/pcs\/adv\? - reject
+# https://pan\.baidu\.com\/act\/api\/activityentry\? - reject
+https:\/\/pan\.baidu\.com\/component\/view\/(1510|1130)\?vip - reject
 
 [Script]
 BaiduYunStaringAd=type=http-response,pattern=^https:\/\/pan\.baidu\.com\/api\/getsyscfg\?,requires-body=1,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/myBlockAds.js
