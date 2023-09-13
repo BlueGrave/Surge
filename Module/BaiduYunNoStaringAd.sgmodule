@@ -1,31 +1,28 @@
 #!name=百度云启动页去广告
-#!desc=百度云网盘启动页等去广告，转载自@RuCu6
-#!author=RuCu6
+#!desc=百度云网盘启动页等去广告，合并自 @RuCu6 & @ddgksf2013 & @ClydeTime & @deezertidal
 
 [URL Rewrite]
-^https:\/\/pan\.baidu\.com\/(act\/api\/activityentry|rest\/2\.0\/pcs\/adx)\? - reject
-^https?:\/\/update\.pan\.baidu\.com\/statistics\? - reject
-
-^https:\/\/pan\.baidu\.com\/pmall\/order\/privilege\/info - reject
-^https:\/\/pan\.baidu\.com\/rest\/.+\/pcs\/adx - reject
-^https:\/\/pan\.baidu\.com\/api\/useractivity\/activity - reject
-^http:\/\/pan\.baidu\.com\/act\/.+\/bchannel\/list - reject
 # ^https:\/\/pan\.baidu\.com\/api\/certuser\/get - reject
+^https:\/\/pan\.baidu\.com\/api\/useractivity\/activity - reject
+^https:\/\/pan\.baidu\.com\/pmall\/order\/privilege\/info - reject
 ^https:\/\/pan\.baidu\.com\/component\/view\/1510\?from - reject
+^https:\/\/pan\.baidu\.com\/component\/view\/(1510|1130)\?vip - reject
 ^https:\/\/sofire\.baidu\.com\/ios\/.+ - reject
 ^https:\/\/ndstatic\.cdn\.bcebos\.com\/activity\/welfare\/js\/.+\.js - reject
 ^https:\/\/ndstatic\.cdn\.bcebos\.com\/activity\/welfare\/index\.html - reject
-^https:\/\/pan\.baidu\.com\/pmall\/order\/privilege\/info - reject
 ^https:\/\/staticsns\.cdn\.bcebos\.com\/amis\/.+/banner.png - reject
+^https:\/\/issuecdn\.baidupcs\.com\/issue\/netdisk\/ts_ad\/ - reject
 ^http:\/\/rp\.hpplay\.cn\/logouts - reject
-# ^https:\/\/issuecdn\.baidupcs\.com\/issue\/netdisk\/ts_ad\/guanggao\/.+ - reject
-https:\/\/issuecdn\.baidupcs\.com\/issue\/netdisk\/ts_ad\/ - reject
-https:\/\/pan\.baidu\.com\/rest\/2.0\/pcs\/adv\? - reject
-# https://pan\.baidu\.com\/act\/api\/activityentry\? - reject
-https:\/\/pan\.baidu\.com\/component\/view\/(1510|1130)\?vip - reject
 
 [Script]
 BaiduYunStaringAd=type=http-response,pattern=^https:\/\/pan\.baidu\.com\/api\/getsyscfg\?,requires-body=1,script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/myBlockAds.js
 
+[Map Local]
+^https:\/\/pan\.baidu\.com\/(act\/api\/activityentry|rest\/.+\/pcs\/adx)\? data="https://raw.githubusercontent.com/mieqq/mieqq/master/reject-dict.json"
+^https?:\/\/update\.pan\.baidu\.com\/statistics\? data="https://raw.githubusercontent.com/mieqq/mieqq/master/reject-dict.json"
+^https?:\/\/pan\.baidu\.com\/act\/v\d\/(bchannel|welfare)\/list data="https://raw.githubusercontent.com/mieqq/mieqq/master/reject-200.txt"
+^https?:\/\/pan\.baidu\.com\/rest\/.*\/pcs\/ad data="https://raw.githubusercontent.com/mieqq/mieqq/master/reject-200.txt"
+^https:\/\/pan\.baidu\.com\/api\/getsyscfg\? data="https://raw.githubusercontent.com/mieqq/mieqq/master/reject-200.txt"
+
 [MITM]
-hostname = %APPEND% pan.baidu.com,update.pan.baidu.com,sofire.baidu.com,ndstatic.cdn.bcebos.com,staticsns.cdn.bcebos.com,issuecdn.baidupcs.com
+hostname = %APPEND% pan.baidu.com,update.pan.baidu.com,sofire.baidu.com,ndstatic.cdn.bcebos.com,staticsns.cdn.bcebos.com,issuecdn.baidupcs.com,rp.hpplay.cn
