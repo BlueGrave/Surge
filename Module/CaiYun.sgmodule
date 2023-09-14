@@ -1,0 +1,13 @@
+#!name=彩云天气 VIP
+#!desc=彩云天气真实 VIP 客户提取 Token
+#!author=@wf021325
+
+# https://biz.cyapi.cn/v2/user?app_name=weather
+# https://biz.cyapi.cn/v1/visitors
+# https://biz.cyapi.cn/v3/login_by_code 登录
+
+[Script]
+彩云天气_VIP=type=http-response,pattern=^https:\/\/biz\.cyapi\.cn\/v\d\/(user\?app_name=weather|visitors|login_by_code)$,requires-body=1,script-path=https://raw.githubusercontent.com/wf021325/qx/master/js/caiyun.js
+
+[MITM]
+hostname = %APPEND% biz.cyapi.cn
