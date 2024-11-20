@@ -1,12 +1,14 @@
-#!name=01 WhiteList
+#!name=WhiteList
 #!desc=排除 AdBlock 误伤，增加一些自用的特殊规则
+#!system=ios
+#!category=自用
 
 [Rule]
 # > General
 DOMAIN,app.adjust.com,DIRECT
 DOMAIN,bdtj.tagtic.cn,DIRECT
 # > 淘宝推广
-DOMAIN-SUFFIX,tce.alicdn.com,DIRECT
+DOMAIN,tce.alicdn.com,DIRECT
 # > Alibaba
 DOMAIN,log.mmstat.com,DIRECT
 DOMAIN,sycm.mmstat.com,DIRECT
@@ -49,6 +51,8 @@ DOMAIN-SUFFIX,fus.cdn.krcom.cn,DIRECT
 DOMAIN,router.asus.com,DIRECT
 # > 应对 edu.cn IPv6 网站
 DOMAIN-SUFFIX,edu.cn,DIRECT
+# > AmyTelecom Subscription
+DOMAIN,orxyji.xyz,DIRECT
 
 # > 部分服务会校验请求的来源 IP，在开启 hybrid 时有可能因为请求IP变化导致无法正常登录和使用（如招商银行），可使用 NO-HYBRID 对特定请求单独关闭 All Hybrid
 DOMAIN-SUFFIX,cmbchina.com,NO-HYBRID
@@ -61,15 +65,19 @@ AND,((PROTOCOL,UDP),(OR,((DOMAIN-SUFFIX,googlevideo.com),(DOMAIN-SUFFIX,gvt1.com
 # > Block P2P
 AND,((PROTOCOL,UDP),(OR,((DOMAIN-KEYWORD,bilibili),(DOMAIN-KEYWORD,biliapi),(DOMAIN-KEYWORD,mcdn),(DOMAIN-KEYWORD,douyu)))),REJECT-NO-DROP
 AND,((PROTOCOL,TCP),(OR,((DOMAIN-KEYWORD,stun),(DOMAIN-KEYWORD,douyu)))),REJECT-NO-DROP
+
 # > 屏蔽勾正数据
 DOMAIN-SUFFIX,gz-data.com,REJECT
-
 # > 随手记专业版去广告
-DOMAIN,sync.feidee.net,DIRECT
-DOMAIN,auth.feidee.net,DIRECT
-USER-AGENT,MyMoneyPro*,REJECT
-DOMAIN-SUFFIX,feidee.com,REJECT
-DOMAIN-SUFFIX,feidee.net,REJECT
+# DOMAIN,sync.feidee.net,DIRECT
+# DOMAIN,auth.feidee.net,DIRECT
+# USER-AGENT,MyMoneyPro*,REJECT
+# DOMAIN-SUFFIX,feidee.com,REJECT
+# DOMAIN-SUFFIX,feidee.net,REJECT
+
+# > 防止 Telegram 加载转圈
+IP-CIDR,95.161.76.100/31,REJECT-NO-DROP,no-resolve
+
 # > 滴滴出行 去广告
 //01 安全提示横幅
 URL-REGEX,^https:\/\/guard\.sec\.xiaojukeji\.com\/api\/guard\/psg\/v2\/getShieldStatus,REJECT
@@ -90,18 +98,18 @@ URL-REGEX,^https:\/\/shop-gw\.chengxinyouxuan\.com\/(route|indexConfig|apolloCon
 URL-REGEX,^https:\/\/img-ys011\.didistatic\.com\/static,REJECT
 //09 骑行
 URL-REGEX,^https:\/\/pt-starimg\.didistatic\.com\/static,REJECT
-# > 中国联通 去开屏
+# > 中国联通 去开屏广告
 DOMAIN-SUFFIX,m1.ad.10010.com,REJECT
-# > 中国电信 去开屏
+# > 中国电信 去开屏广告
 DOMAIN,ad.21cn.com,REJECT
 DOMAIN,ad.k.21cn.com,REJECT
 DOMAIN,admarket.21cn.com,REJECT
 DOMAIN,adshows.21cn.com,REJECT
-# > 顺丰速运 去开屏
+# > 顺丰速运 去开屏广告
 URL-REGEX,^https?:\/\/ccsp-egmas\.sf-express\.com\/cx-app-base\/base\/app\/appVersion\/detectionUpgrade,REJECT
 URL-REGEX,^https?:\/\/ccsp-egmas\.sf-express\.com\/cx-app-base\/base\/app\/ad\/,REJECT
 URL-REGEX,^https?:\/\/shopic\.sf-express\.com\/crm\/mobile\/common\/flashscreen,REJECT
-# > 拼多多 去开屏
+# > 拼多多 去开屏广告
 URL-REGEX,^https?:\/\/api\.(pinduoduo|yangkeduo)\.com\/api\/cappuccino\/splash,REJECT
 # > 美团 去广告
 DOMAIN,portal-portm.meituan.com,REJECT
@@ -115,3 +123,93 @@ URL-REGEX,^https?:\/\/p\d\.meituan\.net\/movie\/\w+\.jpg\?may_covertWebp,REJECT
 URL-REGEX,^https:\/\/api\.wfdata\.club\/v2\/yesfeng\/(infoCenterAd|yesList),REJECT
 # > 作业帮 去广告
 URL-REGEX,^https:\/\/syh\.zybang\.com\/com\/adx\/impress$,REJECT-TINYGIF
+
+# > 修正 SteamCN
+DOMAIN-SUFFIX,st.dl.eccdnx.com,DIRECT
+
+# > 通用广告
+DOMAIN-SUFFIX,doubleclick-cn.net,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,doubleclick.net,REJECT,extended-matching,pre-matching
+# > 米家
+DOMAIN,sdkconfig.ad.xiaomi.com,REJECT,extended-matching,pre-matching
+# > 米家 cn.app.chat.xiaomi.net, app.chat.xiaomi.net
+DOMAIN-SUFFIX,resolver.msg.xiaomi.net,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,app.chat.xiaomi.net,REJECT,extended-matching,pre-matching
+DOMAIN-SUFFIX,relay.mimc.chat.xiaomi.net,REJECT,extended-matching,pre-matching
+IP-CIDR,106.120.178.1/24,REJECT-DROP,no-resolve,pre-matching
+IP-CIDR,114.247.154.1/24,REJECT-DROP,no-resolve,pre-matching
+IP-CIDR,117.128.102.1/24,REJECT-DROP,no-resolve,pre-matching
+IP-CIDR,123.125.102.1/24,REJECT-DROP,no-resolve,pre-matching
+IP-CIDR,220.181.106.1/24,REJECT-DROP,no-resolve,pre-matching
+IP-CIDR,39.102.218.1/24,REJECT-DROP,no-resolve,pre-matching
+IP-CIDR,58.83.177.1/24,REJECT-DROP,no-resolve,pre-matching
+IP-CIDR,161.117.185.1/24,REJECT-DROP,no-resolve,pre-matching
+IP-CIDR,161.117.226.1/24,REJECT-DROP,no-resolve,pre-matching
+IP-CIDR,161.117.238.1/24,REJECT-DROP,no-resolve,pre-matching
+IP-CIDR,161.117.251.1/24,REJECT-DROP,no-resolve,pre-matching
+IP-CIDR,111.13.141.1/24,REJECT-DROP,no-resolve,pre-matching
+IP-CIDR,111.13.213.1/24,REJECT-DROP,no-resolve,pre-matching
+# > 快递100
+URL-REGEX,^http:\/\/p\.kuaidi100\.com\/mobile\/mobileapi\.do,REJECT-TINYGIF,extended-matching
+URL-REGEX,^http:\/\/p\.kuaidi100\.com\/advertisement\/,REJECT-TINYGIF,extended-matching
+
+[URL Rewrite]
+# > 招行掌上生活 (需卸载重装)
+//01 开屏广告
+^https?:\/\/az1mbasecc\.bas\.cmbchina\.com\/Edge\/api\/mlife\.clientface\.clientservice\.api\.advertiseService\/preCacheAdvertiseSec - REJECT
+//02 设置栏目内广告
+^https?:\/\/intellicc\.bas\.cmbchina\.com\/Edge\/api\/mlife\.intelli\.render\.api\.render\/getDynamicDataSec - REJECT
+
+^(http|https):\/\/hub\.nan\.ge https://hub.nange.cn 302
+
+# > 拼多多 //api.pinduoduo.com, api.yangkeduo.com
+^https:\/\/api\.(pinduoduo|yangkeduo)\.com\/api\/cappuccino\/splash - REJECT
+# > 闲鱼 //gw.alicdn.com, acs.m.taobao.com
+^https:\/\/gw\.alicdn\.com\/mt\/ - REJECT
+^https:\/\/gw\.alicdn\.com\/tfs\/.+\d{3,4}-\d{4} - REJECT
+^https:\/\/gw\.alicdn\.com\/tps\/.+\d{3,4}-\d{4} - REJECT
+^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.taobao\.idle\.home\.welcome - REJECT
+//01 首页悬浮标签
+^http:\/\/home\.umetrip\.com\/gateway\/api\/umetrip\/native - REJECT
+//02 我的页面轮播图
+^http:\/\/umerp\.umetrip\.com\/gateway\/api\/umetrip\/native - REJECT
+
+[Script]
+微信朋友圈去广告 = type=http-response,pattern=^https?:\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/Wechat.js,script-update-interval=0
+美团外卖去开屏广告 = type=http-response,requires-body=1,max-size=0,pattern=^https?:\/\/wmapi\.meituan\.com\/api\/v\d+\/loadInfo?,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/startup/startup.js
+微信小程序_掌上公交=type=http-response,pattern=^https?:\/\/wx\.mygolbs\.com\/WxBusServer\/ApiData\.do,requires-body=1,script-path=https://github.com/ddgksf2013/Scripts/raw/master/zhangshanggongjiao.js
+微信小程序_去广告=type=http-response,pattern=^(https?://)?([a-zA-Z0-9]+(-[a-zA-Z0-9]+)*\.)+[a-zA-Z]{2,}(:\d+)?/wp-json/[a-zA-Z0-9_-]+/(mp\/)?v\d/posts,requires-body=1,script-path=https://github.com/ddgksf2013/Scripts/raw/master/applet.js
+
+[Map Local]
+# > 微信小程序_便利蜂@ddgksf2013
+^https?:\/\/api\.blibee\.com\/cvsnotify-api\/cvs\/notify\/app\/banner\/v\d+$ data="https://raw.githubusercontent.com/mieqq/mieqq/master/reject-200.txt"
+# > 易捷加油小程序 底部横幅广告
+^https:\/\/ocrifs\.ejoy\.sinopec\.com\/advertitfs\/advert\/findAdvertInfo data="https://raw.githubusercontent.com/mieqq/mieqq/master/reject-dict.json"
+# > 海尔服务小程序 横幅广告
+^https:\/\/service\.haiersmarthomes\.com\/management\/banner\/getBannerList\?source=4 data="https://raw.githubusercontent.com/mieqq/mieqq/master/reject-dict.json"
+# > 中信银行 开屏广告
+^https:\/\/imcs\.citicbank\.com\/cloud\/.+(1125.+2436|1242.+2688|750.+1638) data="https://raw.githubusercontent.com/mieqq/mieqq/master/reject-dict.json"
+# > 浦大喜奔 开屏广告
+^https?:\/\/image\.spdbccc\.com\.cn\/group\d\/M00\/[7-9]{1}[A-Z0-9]{1}\/[A-Z0-9]{2}\/rBsZ.+(4038|0571)\.PNG data="https://raw.githubusercontent.com/mieqq/mieqq/master/reject-200.txt"
+# > 微信小程序_顺丰速运+ 去广告
+^https:\/\/mcs-mimp-web\.sf-express\.com\/mcs-mimp\/integralPlanet\/getCxAdvertiseList data="https://raw.githubusercontent.com/mieqq/mieqq/master/reject-dict.json"
+^https:\/\/ucmp-static\.sf-express\.com\/proxy\/wxbase\/wxTicket\/wxLiveStreamInfo\?pageNo data="https://raw.githubusercontent.com/mieqq/mieqq/master/reject-dict.json"
+^https:\/\/ucmp\.sf-express\.com\/proxy\/operation-platform\/info-flow-adver\/query data="https://raw.githubusercontent.com/mieqq/mieqq/master/reject-dict.json"
+^https:\/\/ucmp\.sf-express\.com\/proxy\/esgcempcore\/member(Goods\/pointMallService\/goodsList|Manage\/memberEquity\/queryRecommendEquity|ActLengthy\/fullGiveActivityService\/fullGiveInfo) data="https://raw.githubusercontent.com/mieqq/mieqq/master/reject-dict.json"
+# > 云鲸智能 开屏广告
+^https:\/\/cn-app\.narwaltech\.com\/operate\/appPosition\/listSplash\?resourceIds=narwal_splash_screen data="https://raw.githubusercontent.com/mieqq/mieqq/master/reject-dict.json"
+# > 云鲸智能 设备横幅广告
+^https:\/\/cn-app\.narwaltech\.com\/operate\/cactivity\/listByResourceIds\?resourceIds=index_banner data="https://raw.githubusercontent.com/mieqq/mieqq/master/reject-dict.json"
+# > 云鲸智能 我的横幅广告
+^https:\/\/cn-app\.narwaltech\.com\/operate\/cactivity\/listByResourceIds\?resourceIds=user_center_banner data="https://raw.githubusercontent.com/mieqq/mieqq/master/reject-dict.json"
+
+# > 闲鱼 - 开屏广告
+^https:\/\/iyes\.youku\.com\/uts\/v1\/start\/ data-type=text data="{}" status-code=200
+# > 闲鱼 - 底部浮层发布球
+^https:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.user\.strategy\.get\/ data-type=text data="{}" status-code=200
+# > 米家
+^https:\/\/home\.mi\.com\/cgi-op\/api\/v1\/recommendation\/(banner|carousel\/banners|myTab|openingBanner) data-type=text data="{}" status-code=200
+^http:\/\/app\.zhoudamozi\.com\/ad\/.+ data-type=text data=" " status-code=200
+
+[MITM]
+hostname = %APPEND% mp.weixin.qq.com, wmapi.meituan.com, api.blibee.com, www.bbkj.work, wx.wxqqurl.cn, wp3.lobdol.cn, awg.enmonster.com, mp.weixin.qq.com, wx.mygolbs.com, jabi.coding.net, api.bspapp.com, 3dd0be8a-54fe-43ff-a0e7-f670c4f20432.bspapp.com, *.tslt.xyz, g.syshhc.top, c.jxjt888.top, www.laoguikeji.cn, qj.bpojie.com, b.tslt.xyz, m.xgjyouhui.com, www.freeheikeji.cn, xcx.xianbaow.com, *.smkj33.top, *.ddly666.top, hkj178.com, a.jxjt888.top, lysl2020.com, www.i3zh.com, iosoi.cn, jabi.coding.net, jt.jxjt888.top, gjsx.vip, d.syshhc.top, gz.gongzijx.com, tvapp.guilaile.cn, www.benbenfx.xyz, 4thdimension.top, api.bspapp.com, tan.ipnas.ltd, ocrifs.ejoy.sinopec.com, service.haiersmarthomes.com, az1mbasecc.bas.cmbchina.com, intellicc.bas.cmbchina.com, mcs-mimp-web.sf-express.com, ucmp-static.sf-express.com, ucmp.sf-express.com, hub.nan.ge, cn-app.narwaltech.com, api.pinduoduo.com, api.angkeduo.com, gw.alicdn.com, acs.m.taobao.com, home.umetrip.com, umerp.umetrip.com, iyes.youku.com, acs.m.goofish.com, home.mi.com, app.zhoudamozi.com
