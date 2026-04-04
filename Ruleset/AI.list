@@ -39,11 +39,11 @@ DOMAIN-SUFFIX,x.ai
 DOMAIN-SUFFIX,grok.com
 
 # GitHub Copilot
-DOMAIN,api.githubcopilot.com
-DOMAIN,copilot-proxy.githubusercontent.com
-DOMAIN,copilot.microsoft.com
-DOMAIN,sydney.bing.com
-DOMAIN-SUFFIX,githubcopilot.com
+# DOMAIN,api.githubcopilot.com
+# DOMAIN,copilot-proxy.githubusercontent.com
+# DOMAIN,copilot.microsoft.com
+# DOMAIN,sydney.bing.com
+# DOMAIN-SUFFIX,githubcopilot.com
 
 # Apple Intelligence
 # DOMAIN-SUFFIX,apple-relay.apple.com
