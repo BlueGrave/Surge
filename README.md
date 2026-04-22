@@ -1,3 +1,35 @@
+
+<div align="right">
+  <details>
+    <summary >🌐 Language</summary>
+    <div>
+      <div align="center">
+        <a href="https://openaitx.github.io/view.html?user=BlueGrave&project=Surge&lang=en">English</a>
+        | <a href="https://openaitx.github.io/view.html?user=BlueGrave&project=Surge&lang=zh-CN">简体中文</a>
+        | <a href="https://openaitx.github.io/view.html?user=BlueGrave&project=Surge&lang=zh-TW">繁體中文</a>
+        | <a href="https://openaitx.github.io/view.html?user=BlueGrave&project=Surge&lang=ja">日本語</a>
+        | <a href="https://openaitx.github.io/view.html?user=BlueGrave&project=Surge&lang=ko">한국어</a>
+        | <a href="https://openaitx.github.io/view.html?user=BlueGrave&project=Surge&lang=hi">हिन्दी</a>
+        | <a href="https://openaitx.github.io/view.html?user=BlueGrave&project=Surge&lang=th">ไทย</a>
+        | <a href="https://openaitx.github.io/view.html?user=BlueGrave&project=Surge&lang=fr">Français</a>
+        | <a href="https://openaitx.github.io/view.html?user=BlueGrave&project=Surge&lang=de">Deutsch</a>
+        | <a href="https://openaitx.github.io/view.html?user=BlueGrave&project=Surge&lang=es">Español</a>
+        | <a href="https://openaitx.github.io/view.html?user=BlueGrave&project=Surge&lang=it">Italiano</a>
+        | <a href="https://openaitx.github.io/view.html?user=BlueGrave&project=Surge&lang=ru">Русский</a>
+        | <a href="https://openaitx.github.io/view.html?user=BlueGrave&project=Surge&lang=pt">Português</a>
+        | <a href="https://openaitx.github.io/view.html?user=BlueGrave&project=Surge&lang=nl">Nederlands</a>
+        | <a href="https://openaitx.github.io/view.html?user=BlueGrave&project=Surge&lang=pl">Polski</a>
+        | <a href="https://openaitx.github.io/view.html?user=BlueGrave&project=Surge&lang=ar">العربية</a>
+        | <a href="https://openaitx.github.io/view.html?user=BlueGrave&project=Surge&lang=fa">فارسی</a>
+        | <a href="https://openaitx.github.io/view.html?user=BlueGrave&project=Surge&lang=tr">Türkçe</a>
+        | <a href="https://openaitx.github.io/view.html?user=BlueGrave&project=Surge&lang=vi">Tiếng Việt</a>
+        | <a href="https://openaitx.github.io/view.html?user=BlueGrave&project=Surge&lang=id">Bahasa Indonesia</a>
+        | <a href="https://openaitx.github.io/view.html?user=BlueGrave&project=Surge&lang=as">অসমীয়া</
+      </div>
+    </div>
+  </details>
+</div>
+
 # Surge
 自用的 Surge 规则、脚本和模块
 
